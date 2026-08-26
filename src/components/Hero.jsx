@@ -12,7 +12,8 @@ import {
   Sparkles, 
   ExternalLink, 
   ShieldCheck, 
-  Phone
+  Phone,
+  FileText
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 import { personalInfo } from "../data/portfolioData";
@@ -123,7 +124,7 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
               
               {/* Extra Large Master Portrait Headshot */}
               <div className="relative group shrink-0">
-                <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-3xl p-[3px] bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-500 shadow-2xl shadow-cyan-500/30 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-3xl p-[3px] bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-500 shadow-2xl shadow-cyan-500/30 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                   <img
                     src={profileImg}
                     alt="Aman Varma - Python Developer & Software Engineer"
@@ -149,25 +150,24 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
               </div>
             </div>
 
-            {/* Crisp, Concise Bio */}
+            {/* Crisp, Concise Bio (Pure Backend & Software Focus) */}
             <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
               B.Tech Computer Science graduate building scalable <span className="text-white font-medium">Python (FastAPI & Flask) backends</span>, 
-              <span className="text-cyan-300 font-medium"> 25+ production REST APIs</span>, and 
-              <span className="text-teal-300 font-medium"> React & Tailwind CSS frontends</span> backed by 
-              <span className="text-indigo-300 font-medium"> MySQL & MongoDB with 26 automated CI/CD unit tests</span>.
+              <span className="text-cyan-300 font-medium"> 25+ production REST APIs</span>, and automated 
+              <span className="text-indigo-300 font-medium"> ETL data validation pipelines backed by MySQL & MongoDB (26 CI/CD unit tests)</span>.
             </p>
 
-            {/* Core Tech Stack Badges (Clean Responsive Row) */}
+            {/* Core Tech Stack Badges (Clean Single Row) */}
             <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-xs text-slate-300">
               <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-cyan-300">Python 3.12</span>
               <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-slate-200">FastAPI & Flask</span>
-              <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-teal-300">React & Tailwind</span>
+              <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-teal-300">25+ REST APIs</span>
               <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-slate-200">MySQL & MongoDB</span>
               <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-emerald-300">26 CI/CD Tests</span>
               <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-purple-300">SAP Certified</span>
             </div>
 
-            {/* Action Buttons */}
+            {/* Action Buttons: View Projects, View & Download Resume, CLI */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <button
                 onClick={() => handleScrollTo("projects")}
@@ -177,16 +177,15 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              {/* Direct Real PDF Download */}
-              <a
-                href="/Aman_Varma_Resume.pdf"
-                download="Aman_Varma_Resume.pdf"
+              {/* View & Download Resume Button */}
+              <button
+                onClick={onOpenResume}
                 className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 text-slate-200 hover:text-white font-medium text-sm transition-all duration-200"
-                title="Download Original Resume PDF"
+                title="View and Download Resume"
               >
-                <Download className="w-4 h-4 text-cyan-400" />
-                <span>Resume (PDF)</span>
-              </a>
+                <FileText className="w-4 h-4 text-cyan-400" />
+                <span>View Resume</span>
+              </button>
 
               <button
                 onClick={onOpenTerminal}

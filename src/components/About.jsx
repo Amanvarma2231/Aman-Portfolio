@@ -30,16 +30,16 @@ export default function About() {
             <span>ABOUT AMAN VARMA</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Engineering High-Throughput Backends & Intelligent Systems
+            Architecting Resilient Backends & Intelligent Systems
           </h2>
           <p className="text-slate-400 text-sm sm:text-base">
-            Combining core computer science foundations with real-world Python engineering, cloud-deployed APIs, and modern frontends.
+            Transitioning computer science foundations into high-performance Python microservices, automated validation suites, and cloud data architectures.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Big Prominent Photo Card (5 cols) */}
+          {/* Left Column: Big Master Portrait Card (5 cols) */}
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative group max-w-sm w-full">
               {/* Outer Glowing Border */}
@@ -92,23 +92,23 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right Column: Bio & Core Engineering Pillars (7 cols) */}
+          {/* Right Column: Narrative & Engineering Pillars (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
               <p>
-                I am a <strong className="text-white font-semibold">Software Engineer</strong> with a strong focus on Python backend architecture, REST API design, and data validation. In my role at <span className="text-cyan-300 font-medium">Druidot Consulting</span>, I develop automated verification test suites for database workflows and build standards-compliant microservices.
+                I am a <strong className="text-white font-semibold">Python Developer & Software Engineer</strong> dedicated to building high-throughput backend services, robust REST APIs, and automated data pipelines. Currently interning at <span className="text-cyan-300 font-medium">Druidot Consulting (OPC) Pvt. Ltd.</span>, I engineer automated test suites and schema validation checks across MySQL and MongoDB data stores.
               </p>
 
               <p>
-                Holding a B.Tech in Computer Science & Engineering from <strong className="text-white">NITRA Technical Campus (AKTU)</strong>, I have presented research on energy-efficient distributed network routing at the <span className="text-purple-300">NGAISL-2026</span> International Conference.
+                Holding a B.Tech in Computer Science & Engineering from <strong className="text-white">NITRA Technical Campus (AKTU)</strong>, I have presented research on energy-efficient distributed network routing at the <span className="text-purple-300">NGAISL-2026</span> International Conference, focusing on algorithmic optimization and throughput efficiency.
               </p>
 
               <p>
-                My development toolkit spans <strong className="text-white">FastAPI, Flask, React, Tailwind CSS, MySQL, MongoDB, and Docker</strong>. I prioritize test-driven quality with CI/CD automation, ensuring that every service is secure, documented, and production-ready.
+                My core backend stack includes <strong className="text-white">Python 3.12, FastAPI, Flask, Django, MySQL, PostgreSQL, MongoDB, SQLite, and Docker</strong>. I believe in test-driven engineering with automated CI/CD pipelines (26 unit tests in GitHub Actions), ensuring every system is deterministic, secure, and production-ready.
               </p>
             </div>
 
-            {/* Core Engineering Pillars Cards */}
+            {/* Core Engineering Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
               <div className="p-4 bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 rounded-xl transition-colors space-y-1.5">
                 <div className="text-cyan-400 font-mono font-bold text-xs flex items-center gap-1.5">
@@ -123,7 +123,7 @@ export default function About() {
               <div className="p-4 bg-slate-900/60 border border-slate-800 hover:border-purple-500/40 rounded-xl transition-colors space-y-1.5">
                 <div className="text-purple-400 font-mono font-bold text-xs flex items-center gap-1.5">
                   <BrainCircuit className="w-4 h-4" />
-                  <span>AI & Vision NLP</span>
+                  <span>AI & Data Pipelines</span>
                 </div>
                 <div className="text-xs text-slate-300 leading-relaxed font-sans">
                   VLM diagnostics, Voice Sentiment signal processing & LLM lead extraction.
