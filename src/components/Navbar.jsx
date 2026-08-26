@@ -7,9 +7,10 @@ import {
   X, 
   Code2, 
   Sparkles,
-  Command
+  Command,
+  MessageCircle
 } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "./Icons";
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from "./Icons";
 import { personalInfo } from "../data/portfolioData";
 import profileImg from "../assets/profile.png";
 
@@ -52,34 +53,37 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? "bg-[#090d16]/85 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/40 py-3" 
-        : "bg-transparent py-5"
+        ? "bg-[#090d16]/90 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/50 py-3" 
+        : "bg-transparent py-4 sm:py-5"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
+          
+          {/* Brand Logo & Name Highlight */}
           <a 
             href="#" 
-            className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg p-1"
+            className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-xl p-1"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-500 p-[1.5px] shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-500 p-[1.5px] shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
               <img
                 src={profileImg}
-                alt="Aman Varma"
+                alt="Aman Varma - Software Engineer"
                 className="w-full h-full object-cover object-top rounded-[10px] bg-[#090d16]"
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-mono text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-1.5">
-                aman.varma<span className="text-cyan-400">()</span>
+              <span className="font-extrabold text-base sm:text-lg text-white tracking-tight flex items-center gap-1.5">
+                AMAN VARMA
               </span>
-              <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
+              <span className="text-[11px] font-mono text-cyan-400 font-semibold flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                open to work
+                Software Engineer
               </span>
             </div>
           </a>
 
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2 bg-slate-900/60 border border-slate-800/80 rounded-full px-4 py-1.5 shadow-inner">
+          {/* Desktop Navigation Links */}
+          <nav className="hidden md:flex items-center gap-1 lg:gap-2 bg-slate-900/70 border border-slate-800/80 rounded-full px-4 py-1.5 shadow-inner">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -92,16 +96,31 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
             ))}
           </nav>
 
+          {/* Quick Actions & Social Icons */}
           <div className="hidden lg:flex items-center gap-2.5">
+            {/* WhatsApp Quick Chat */}
+            <a
+              href="https://wa.me/916306572504?text=Hi%20Aman,%20I%20saw%20your%20Software%20Engineer%20portfolio%20and%20would%20like%20to%20connect."
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-800/80 rounded-lg hover:text-white transition-all duration-200 shadow-sm"
+              title="Chat on WhatsApp"
+            >
+              <WhatsappIcon className="w-3.5 h-3.5 text-emerald-400" />
+              <span>WhatsApp</span>
+            </a>
+
+            {/* Terminal Launcher Button */}
             <button
               onClick={onOpenTerminal}
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono text-slate-300 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 rounded-lg hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-200 shadow-sm"
               title="Open Interactive Terminal"
             >
               <TerminalIcon className="w-3.5 h-3.5 text-cyan-400" />
-              <span>CLI Terminal</span>
+              <span>CLI</span>
             </button>
 
+            {/* Command Palette Trigger */}
             <button
               onClick={onOpenCommandPalette}
               className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-mono text-slate-400 bg-slate-900/80 hover:bg-slate-800 border border-slate-800 rounded-lg transition-all"
@@ -111,6 +130,7 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
               <span className="text-[10px] bg-slate-800 px-1 py-0.5 rounded text-slate-300">⌘K</span>
             </button>
 
+            {/* Resume Button */}
             <button
               onClick={onOpenResume}
               className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 rounded-lg shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-200 active:scale-95"
@@ -119,6 +139,7 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
               <span>Resume</span>
             </button>
 
+            {/* Social Icons */}
             <div className="flex items-center gap-1 pl-1 border-l border-slate-800">
               <a
                 href={personalInfo.github}
@@ -141,7 +162,18 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
             </div>
           </div>
 
+          {/* Mobile Menu & Action Buttons */}
           <div className="flex items-center gap-2 md:hidden">
+            <a
+              href="https://wa.me/916306572504?text=Hi%20Aman,%20I%20saw%20your%20Software%20Engineer%20portfolio."
+              target="_blank"
+              rel="noreferrer"
+              className="p-2 text-emerald-400 bg-emerald-950/80 border border-emerald-800 rounded-lg"
+              title="WhatsApp"
+            >
+              <WhatsappIcon className="w-4 h-4" />
+            </a>
+
             <button
               onClick={onOpenTerminal}
               className="p-2 text-slate-300 hover:text-cyan-400 bg-slate-800/80 border border-slate-700/80 rounded-lg"
@@ -168,6 +200,7 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
         </div>
       </div>
 
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#0c1222] border-b border-slate-800 px-4 pt-3 pb-6 space-y-2 mt-2 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="grid grid-cols-2 gap-2 pt-2 pb-3 border-b border-slate-800">

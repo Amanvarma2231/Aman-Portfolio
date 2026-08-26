@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Terminal from "./components/Terminal";
 import ResumeModal from "./components/ResumeModal";
 import CommandPalette from "./components/CommandPalette";
+import { WhatsappIcon } from "./components/Icons";
 
 export default function App() {
   const [terminalOpen, setTerminalOpen] = useState(false);
@@ -25,6 +26,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#090d16] text-slate-100 font-sans relative overflow-x-hidden selection:bg-cyan-500/30 selection:text-cyan-200">
+      
       {/* Top Fixed Navigation */}
       <Navbar
         onOpenResume={() => setResumeOpen(true)}
@@ -32,17 +34,30 @@ export default function App() {
         onOpenCommandPalette={() => setCommandPaletteOpen(true)}
       />
 
-      {/* Main Portfolio Sections */}
+      {/* Main Page Flow Hierarchy */}
       <main>
+        {/* 1. Hero: Name, Role, Headshot, Stats, Core CTAs */}
         <Hero
           onOpenResume={() => setResumeOpen(true)}
           onOpenTerminal={() => setTerminalOpen(true)}
         />
+
+        {/* 2. Featured Projects: Live Demos, Repos, Metrics */}
         <Projects />
+
+        {/* 3. Experience & Milestones: Druidot Consulting, Research, Education */}
         <Experience />
+
+        {/* 4. Skills Matrix: Domain Breakdown */}
         <Skills />
+
+        {/* 5. System Architecture Flow Simulator */}
         <ArchitectureFlow />
+
+        {/* 6. Certifications & Accreditations: SAP, Infosys, JPMorgan */}
         <Certifications />
+
+        {/* 7. Direct Contact & Multi-Channel Connect */}
         <Contact />
       </main>
 
@@ -51,6 +66,20 @@ export default function App() {
         onOpenResume={() => setResumeOpen(true)}
         onOpenTerminal={() => setTerminalOpen(true)}
       />
+
+      {/* Floating WhatsApp Quick Action Button */}
+      <aside aria-label="Quick Connect" className="fixed bottom-6 right-6 z-40">
+        <a
+          href="https://wa.me/916306572504?text=Hi%20Aman,%20I%20saw%20your%20Software%20Engineer%20portfolio%20and%20would%20like%20to%20connect."
+          target="_blank"
+          rel="noreferrer"
+          className="group flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs sm:text-sm shadow-2xl shadow-emerald-950/80 border border-emerald-400/40 hover:scale-105 transition-all duration-300 active:scale-95"
+          title="Chat directly on WhatsApp (+91-6306572504)"
+        >
+          <WhatsappIcon className="w-5 h-5 text-white" />
+          <span className="hidden sm:inline font-semibold">Chat on WhatsApp</span>
+        </a>
+      </aside>
 
       {/* Interactive Modals & CLI Terminal */}
       <Terminal

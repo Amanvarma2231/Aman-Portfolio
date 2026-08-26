@@ -1,6 +1,19 @@
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Send, Copy, Check, MessageSquare, Sparkles, Clock } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "./Icons";
+import { 
+  Mail, 
+  Phone, 
+  MapPin, 
+  Send, 
+  Copy, 
+  Check, 
+  MessageSquare, 
+  Sparkles,
+  Clock,
+  ExternalLink,
+  ShieldCheck,
+  CheckCircle2
+} from "lucide-react";
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from "./Icons";
 import confetti from "canvas-confetti";
 import { personalInfo } from "../data/portfolioData";
 
@@ -13,7 +26,7 @@ export default function Contact() {
   });
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [submitMode, setSubmitMode] = useState(null); // 'whatsapp' | 'email'
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(personalInfo.email);
@@ -27,13 +40,32 @@ export default function Contact() {
     setTimeout(() => setCopiedPhone(false), 2000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSendWhatsApp = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
+    if (!formData.name || !formData.message) return;
 
-    // Trigger mailto link for direct sending
+    const messageText = `Hi Aman,\n\nName: ${formData.name}\nEmail: ${formData.email || "Not provided"}\nSubject: ${formData.subject || "Project / Role Inquiry"}\n\nMessage:\n${formData.message}`;
+    const whatsappUrl = `https://wa.me/916306572504?text=${encodeURIComponent(messageText)}`;
+    
+    window.open(whatsappUrl, "_blank");
+
+    try {
+      confetti({
+        particleCount: 60,
+        spread: 70,
+        origin: { y: 0.7 }
+      });
+    } catch (err) {}
+
+    setSubmitMode("whatsapp");
+  };
+
+  const handleSendEmail = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.message) return;
+
     const mailtoUrl = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
-      formData.subject || `Message from ${formData.name} via Portfolio`
+      formData.subject || `Opportunity / Message from ${formData.name}`
     )}&body=${encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     )}`;
@@ -48,35 +80,68 @@ export default function Contact() {
       });
     } catch (err) {}
 
-    setSubmitted(true);
+    setSubmitMode("email");
   };
 
   return (
-    <section id="contact" className="py-20 bg-slate-950/40 relative border-t border-slate-800/80">
+    <section id="contact" className="py-20 bg-slate-950/50 relative border-t border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/60 text-xs font-mono text-cyan-400">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/60 text-xs font-mono text-cyan-400">
             <MessageSquare className="w-3.5 h-3.5" />
-            <span>LET'\''S BUILD TOGETHER</span>
+            <span>LET'\''S CONNECT DIRECTLY</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Ready to Connect & Collaborate
+            Connect with Aman Varma
           </h2>
           <p className="text-slate-400 text-sm sm:text-base">
-            Looking for a high-impact Software Engineer, AI Backend Developer, or Python Specialist? Drop a message or connect directly.
+            Reach out directly for Software Engineer, AI Backend Developer, or Full-Stack roles. Instant response guaranteed.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Direct Info & Quick Copy (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-2xl bg-[#0c1222] border border-slate-800 p-6 sm:p-7 shadow-xl space-y-6">
-              <h3 className="text-lg font-bold text-white font-mono">
-                Direct Contact Channels
+          <div className="lg:col-span-5 space-y-5">
+            <div className="rounded-2xl bg-[#0c1222] border border-slate-800 p-6 sm:p-7 shadow-xl space-y-5">
+              <h3 className="text-lg font-bold text-white font-mono flex items-center justify-between">
+                <span>Direct Contact Channels</span>
+                <span className="text-[11px] font-normal text-emerald-400 font-mono flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Active
+                </span>
               </h3>
+
+              {/* WhatsApp Card */}
+              <div className="p-4 bg-emerald-950/30 border border-emerald-800/60 rounded-xl flex items-center justify-between gap-3 group hover:border-emerald-500/50 transition-colors">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shrink-0">
+                    <WhatsappIcon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-emerald-300 font-mono font-medium">WhatsApp Direct Chat</div>
+                    <a 
+                      href="https://wa.me/916306572504?text=Hi%20Aman,%20I%20saw%20your%20Software%20Engineer%20portfolio."
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="text-xs sm:text-sm font-bold text-white hover:text-emerald-400 transition-colors flex items-center gap-1"
+                    >
+                      <span>+91-6306572504</span>
+                      <ExternalLink className="w-3 h-3 text-emerald-400" />
+                    </a>
+                  </div>
+                </div>
+
+                <button
+                  onClick={handleCopyPhone}
+                  className="p-2 rounded-lg bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition-colors shrink-0"
+                  title="Copy Phone Number"
+                >
+                  {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                </button>
+              </div>
 
               {/* Email Card */}
               <div className="p-4 bg-slate-900/70 border border-slate-800 rounded-xl flex items-center justify-between gap-3">
@@ -101,29 +166,6 @@ export default function Contact() {
                 </button>
               </div>
 
-              {/* Phone Card */}
-              <div className="p-4 bg-slate-900/70 border border-slate-800 rounded-xl flex items-center justify-between gap-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-slate-400 font-mono">Direct Phone / WhatsApp</div>
-                    <a href={`tel:${personalInfo.phone}`} className="text-xs sm:text-sm font-semibold text-white hover:text-emerald-300">
-                      {personalInfo.phone}
-                    </a>
-                  </div>
-                </div>
-
-                <button
-                  onClick={handleCopyPhone}
-                  className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors shrink-0"
-                  title="Copy Phone Number"
-                >
-                  {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-                </button>
-              </div>
-
               {/* Location Card */}
               <div className="p-4 bg-slate-900/70 border border-slate-800 rounded-xl flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
@@ -132,7 +174,7 @@ export default function Contact() {
                 <div>
                   <div className="text-xs text-slate-400 font-mono">Location & Availability</div>
                   <div className="text-xs sm:text-sm font-semibold text-white">
-                    {personalInfo.location} � Open to Remote & Onsite
+                    {personalInfo.location} • Open to Remote & Onsite
                   </div>
                 </div>
               </div>
@@ -140,17 +182,17 @@ export default function Contact() {
               {/* Response Time Guarantee */}
               <div className="flex items-center gap-2 text-xs font-mono text-slate-400 pt-2 border-t border-slate-800/80">
                 <Clock className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Typical response time: Within 2�4 hours</span>
+                <span>Typical response time: Within 2–4 hours</span>
               </div>
             </div>
 
             {/* Social Links Bar */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3.5">
               <a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noreferrer"
-                className="p-4 rounded-xl bg-[#0c1222] border border-slate-800 hover:border-slate-700 flex items-center gap-3 group transition-colors"
+                className="p-3.5 rounded-xl bg-[#0c1222] border border-slate-800 hover:border-slate-700 flex items-center gap-3 group transition-colors"
               >
                 <GithubIcon className="w-5 h-5 text-slate-400 group-hover:text-white" />
                 <div>
@@ -163,7 +205,7 @@ export default function Contact() {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="p-4 rounded-xl bg-[#0c1222] border border-slate-800 hover:border-cyan-500/40 flex items-center gap-3 group transition-colors"
+                className="p-3.5 rounded-xl bg-[#0c1222] border border-slate-800 hover:border-cyan-500/40 flex items-center gap-3 group transition-colors"
               >
                 <LinkedinIcon className="w-5 h-5 text-slate-400 group-hover:text-cyan-400" />
                 <div>
@@ -175,34 +217,42 @@ export default function Contact() {
 
           </div>
 
-          {/* Right Column: Interactive Send Form (7 cols) */}
+          {/* Right Column: Interactive Multi-Channel Form (7 cols) */}
           <div className="lg:col-span-7">
             <div className="rounded-2xl bg-[#0c1222] border border-slate-800 p-6 sm:p-8 shadow-xl">
-              <h3 className="text-lg font-bold text-white font-mono mb-2">
-                Send Direct Message
-              </h3>
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-lg font-bold text-white font-mono">
+                  Send Direct Message to Aman
+                </h3>
+                <span className="text-xs font-mono text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-800">
+                  Instant Connect
+                </span>
+              </div>
+              
               <p className="text-xs sm:text-sm text-slate-400 mb-6">
-                Fill out the form below to initiate immediate email conversation.
+                Fill the details below to instantly send to Aman via <span className="text-emerald-400 font-semibold">WhatsApp</span> or <span className="text-cyan-400 font-semibold">Email</span>.
               </p>
 
-              {submitted ? (
-                <div className="p-6 bg-emerald-950/40 border border-emerald-800/60 rounded-xl text-center space-y-3">
+              {submitMode ? (
+                <div className="p-6 bg-emerald-950/40 border border-emerald-800/60 rounded-xl text-center space-y-3 animate-in fade-in">
                   <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
-                    <Check className="w-6 h-6" />
+                    <CheckCircle2 className="w-6 h-6" />
                   </div>
-                  <h4 className="text-base font-bold text-white">Email Client Triggered!</h4>
+                  <h4 className="text-base font-bold text-white">
+                    {submitMode === "whatsapp" ? "WhatsApp Chat Launched!" : "Email Client Triggered!"}
+                  </h4>
                   <p className="text-xs sm:text-sm text-slate-300">
-                    Thank you for reaching out. Your default email app was launched with the draft. You can also write directly to <span className="text-cyan-400 font-mono">{personalInfo.email}</span>.
+                    Your message draft was launched. You can also chat directly on WhatsApp at <span className="text-emerald-400 font-mono font-bold">+91-6306572504</span> or write to <span className="text-cyan-400 font-mono">{personalInfo.email}</span>.
                   </p>
                   <button
-                    onClick={() => setSubmitted(false)}
-                    className="px-4 py-2 text-xs font-mono bg-slate-900 border border-slate-700 text-slate-300 hover:text-white rounded-lg"
+                    onClick={() => setSubmitMode(null)}
+                    className="px-4 py-2 text-xs font-mono bg-slate-900 border border-slate-700 text-slate-300 hover:text-white rounded-lg transition-colors"
                   >
                     Send Another Message
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <label className="text-xs font-mono text-slate-300">Your Name *</label>
@@ -211,54 +261,66 @@ export default function Contact() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="John Doe"
+                        placeholder="e.g. John Doe / Hiring Lead"
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 focus:border-cyan-500 focus:outline-none text-white text-xs sm:text-sm placeholder-slate-600 transition-colors"
                       />
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-slate-300">Your Email *</label>
+                      <label className="text-xs font-mono text-slate-300">Your Email / Phone</label>
                       <input
-                        type="email"
-                        required
+                        type="text"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="john@example.com"
+                        placeholder="john@company.com or phone"
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 focus:border-cyan-500 focus:outline-none text-white text-xs sm:text-sm placeholder-slate-600 transition-colors"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-slate-300">Subject / Role</label>
+                    <label className="text-xs font-mono text-slate-300">Subject / Role Focus</label>
                     <input
                       type="text"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      placeholder="Opportunity / Backend & AI Engineering Project"
+                      placeholder="Opportunity for Software Engineer / AI Developer"
                       className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 focus:border-cyan-500 focus:outline-none text-white text-xs sm:text-sm placeholder-slate-600 transition-colors"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-slate-300">Message *</label>
+                    <label className="text-xs font-mono text-slate-300">Your Message *</label>
                     <textarea
                       required
-                      rows={5}
+                      rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Hi Aman, we would love to discuss a developer opportunity with you..."
+                      placeholder="Hi Aman, we reviewed your projects and would love to schedule an interview..."
                       className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 focus:border-cyan-500 focus:outline-none text-white text-xs sm:text-sm placeholder-slate-600 transition-colors resize-none"
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-300 active:scale-98"
-                  >
-                    <Send className="w-4 h-4" />
-                    <span>Send Message to Aman Varma</span>
-                  </button>
+                  {/* Dual Action Buttons: WhatsApp & Email */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    <button
+                      type="button"
+                      onClick={handleSendWhatsApp}
+                      className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 transition-all duration-200 active:scale-95"
+                    >
+                      <WhatsappIcon className="w-4 h-4" />
+                      <span>Send to WhatsApp</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handleSendEmail}
+                      className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-200 active:scale-95"
+                    >
+                      <Mail className="w-4 h-4" />
+                      <span>Send via Email</span>
+                    </button>
+                  </div>
                 </form>
               )}
             </div>
