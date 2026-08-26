@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Terminal as TerminalIcon, FileText, Mail, Menu, X, Code2, Sparkles, Command } from "lucide-react";
+import { 
+  Terminal as TerminalIcon, 
+  FileText, 
+  Mail, 
+  Menu, 
+  X, 
+  Code2, 
+  Sparkles,
+  Command
+} from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 import { personalInfo } from "../data/portfolioData";
+import profileImg from "../assets/profile.png";
 
 export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPalette }) {
   const [scrolled, setScrolled] = useState(false);
@@ -51,13 +61,15 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
             href="#" 
             className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg p-1"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-500 p-[1px] shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform duration-300">
-              <div className="w-full h-full bg-[#090d16] rounded-[11px] flex items-center justify-center">
-                <Code2 className="w-5 h-5 text-cyan-400 group-hover:text-white transition-colors" />
-              </div>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-500 p-[1.5px] shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+              <img
+                src={profileImg}
+                alt="Aman Varma"
+                className="w-full h-full object-cover object-top rounded-[10px] bg-[#090d16]"
+              />
             </div>
             <div className="flex flex-col">
-              <span className="font-mono text-base font-bold text-white tracking-tight flex items-center gap-1.5">
+              <span className="font-mono text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-1.5">
                 aman.varma<span className="text-cyan-400">()</span>
               </span>
               <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
@@ -115,7 +127,7 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
                 className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
                 title="GitHub Profile"
               >
-                <GithubIconIcon className="w-4 h-4" />
+                <GithubIcon className="w-4 h-4" />
               </a>
               <a
                 href={personalInfo.linkedin}
@@ -124,7 +136,7 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
                 className="p-1.5 text-slate-400 hover:text-cyan-400 hover:bg-slate-800 rounded-lg transition-colors"
                 title="LinkedIn Profile"
               >
-                <LinkedinIconIcon className="w-4 h-4" />
+                <LinkedinIcon className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -179,7 +191,7 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
                 rel="noreferrer"
                 className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-white"
               >
-                <GithubIconIcon className="w-4 h-4" />
+                <GithubIcon className="w-4 h-4" />
                 <span>GitHub</span>
               </a>
               <a
@@ -188,7 +200,7 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
                 rel="noreferrer"
                 className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-cyan-400"
               >
-                <LinkedinIconIcon className="w-4 h-4" />
+                <LinkedinIcon className="w-4 h-4" />
                 <span>LinkedIn</span>
               </a>
             </div>
