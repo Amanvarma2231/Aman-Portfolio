@@ -7,8 +7,7 @@ import {
   X, 
   Code2, 
   Sparkles,
-  Command,
-  MessageCircle
+  Command
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon, WhatsappIcon } from "./Icons";
 import { personalInfo } from "../data/portfolioData";
@@ -27,6 +26,7 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
   }, []);
 
   const navLinks = [
+    { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
     { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
@@ -59,7 +59,6 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Brand Logo & Name Highlight */}
           <a 
             href="#" 
             className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-xl p-1"
@@ -82,7 +81,6 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
             </div>
           </a>
 
-          {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-2 bg-slate-900/70 border border-slate-800/80 rounded-full px-4 py-1.5 shadow-inner">
             {navLinks.map((link) => (
               <a
@@ -96,9 +94,7 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
             ))}
           </nav>
 
-          {/* Quick Actions & Social Icons */}
           <div className="hidden lg:flex items-center gap-2.5">
-            {/* WhatsApp Quick Chat */}
             <a
               href="https://wa.me/916306572504?text=Hi%20Aman,%20I%20saw%20your%20Software%20Engineer%20portfolio%20and%20would%20like%20to%20connect."
               target="_blank"
@@ -110,7 +106,6 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
               <span>WhatsApp</span>
             </a>
 
-            {/* Terminal Launcher Button */}
             <button
               onClick={onOpenTerminal}
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono text-slate-300 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 rounded-lg hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-200 shadow-sm"
@@ -120,7 +115,6 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
               <span>CLI</span>
             </button>
 
-            {/* Command Palette Trigger */}
             <button
               onClick={onOpenCommandPalette}
               className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-mono text-slate-400 bg-slate-900/80 hover:bg-slate-800 border border-slate-800 rounded-lg transition-all"
@@ -130,7 +124,6 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
               <span className="text-[10px] bg-slate-800 px-1 py-0.5 rounded text-slate-300">⌘K</span>
             </button>
 
-            {/* Resume Button */}
             <button
               onClick={onOpenResume}
               className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 rounded-lg shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-200 active:scale-95"
@@ -139,7 +132,6 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
               <span>Resume</span>
             </button>
 
-            {/* Social Icons */}
             <div className="flex items-center gap-1 pl-1 border-l border-slate-800">
               <a
                 href={personalInfo.github}
@@ -162,7 +154,6 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
             </div>
           </div>
 
-          {/* Mobile Menu & Action Buttons */}
           <div className="flex items-center gap-2 md:hidden">
             <a
               href="https://wa.me/916306572504?text=Hi%20Aman,%20I%20saw%20your%20Software%20Engineer%20portfolio."
@@ -200,7 +191,6 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
         </div>
       </div>
 
-      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#0c1222] border-b border-slate-800 px-4 pt-3 pb-6 space-y-2 mt-2 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="grid grid-cols-2 gap-2 pt-2 pb-3 border-b border-slate-800">

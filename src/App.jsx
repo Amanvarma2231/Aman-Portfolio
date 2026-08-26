@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import About from "./components/About";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
@@ -36,28 +37,31 @@ export default function App() {
 
       {/* Main Page Flow Hierarchy */}
       <main>
-        {/* 1. Hero: Name, Role, Headshot, Stats, Core CTAs */}
+        {/* 1. Hero: Name, Role, Master Headshot, Stats, Core CTAs */}
         <Hero
           onOpenResume={() => setResumeOpen(true)}
           onOpenTerminal={() => setTerminalOpen(true)}
         />
 
-        {/* 2. Featured Projects: Live Demos, Repos, Metrics */}
+        {/* 2. About Aman Varma: Story, Core Pillars, Large Photo Showcase */}
+        <About />
+
+        {/* 3. Featured Projects: Live Demos, Repos, Metrics */}
         <Projects />
 
-        {/* 3. Experience & Milestones: Druidot Consulting, Research, Education */}
+        {/* 4. Experience & Milestones: Druidot Consulting, Research, Education */}
         <Experience />
 
-        {/* 4. Skills Matrix: Domain Breakdown */}
+        {/* 5. Skills Matrix: Domain Breakdown */}
         <Skills />
 
-        {/* 5. System Architecture Flow Simulator */}
+        {/* 6. System Architecture Flow Simulator */}
         <ArchitectureFlow />
 
-        {/* 6. Certifications & Accreditations: SAP, Infosys, JPMorgan */}
+        {/* 7. Certifications & Accreditations: SAP, Infosys, JPMorgan */}
         <Certifications />
 
-        {/* 7. Direct Contact & Multi-Channel Connect */}
+        {/* 8. Direct Contact & Multi-Channel Connect */}
         <Contact />
       </main>
 
