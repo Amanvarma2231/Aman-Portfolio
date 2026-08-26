@@ -7,13 +7,11 @@ import {
   Copy, 
   Check, 
   MessageSquare, 
-  Sparkles,
-  Clock,
-  ExternalLink,
-  ShieldCheck,
-  CheckCircle2
+  Sparkles, 
+  Clock, 
+  CheckCircle2 
 } from "lucide-react";
-import { GithubIcon, LinkedinIcon, WhatsappIcon } from "./Icons";
+import { GithubIcon, LinkedinIcon } from "./Icons";
 import confetti from "canvas-confetti";
 import { personalInfo } from "../data/portfolioData";
 
@@ -26,7 +24,7 @@ export default function Contact() {
   });
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
-  const [submitMode, setSubmitMode] = useState(null); // 'whatsapp' | 'email'
+  const [submitted, setSubmitted] = useState(false);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(personalInfo.email);
@@ -40,27 +38,7 @@ export default function Contact() {
     setTimeout(() => setCopiedPhone(false), 2000);
   };
 
-  const handleSendWhatsApp = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.message) return;
-
-    const messageText = `Hi Aman,\n\nName: ${formData.name}\nEmail: ${formData.email || "Not provided"}\nSubject: ${formData.subject || "Project / Role Inquiry"}\n\nMessage:\n${formData.message}`;
-    const whatsappUrl = `https://wa.me/916306572504?text=${encodeURIComponent(messageText)}`;
-    
-    window.open(whatsappUrl, "_blank");
-
-    try {
-      confetti({
-        particleCount: 60,
-        spread: 70,
-        origin: { y: 0.7 }
-      });
-    } catch (err) {}
-
-    setSubmitMode("whatsapp");
-  };
-
-  const handleSendEmail = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.message) return;
 
@@ -74,13 +52,13 @@ export default function Contact() {
 
     try {
       confetti({
-        particleCount: 50,
-        spread: 60,
+        particleCount: 60,
+        spread: 70,
         origin: { y: 0.7 }
       });
     } catch (err) {}
 
-    setSubmitMode("email");
+    setSubmitted(true);
   };
 
   return (
@@ -94,10 +72,10 @@ export default function Contact() {
             <span>LET'\''S CONNECT DIRECTLY</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Connect with Aman Varma
+            Get in Touch with Aman Varma
           </h2>
           <p className="text-slate-400 text-sm sm:text-base">
-            Reach out directly for Software Engineer, AI Backend Developer, or Full-Stack roles. Instant response guaranteed.
+            Reach out directly for Python Developer, Backend Engineer, or Software Engineering opportunities.
           </p>
         </div>
 
@@ -114,37 +92,8 @@ export default function Contact() {
                 </span>
               </h3>
 
-              {/* WhatsApp Card */}
-              <div className="p-4 bg-emerald-950/30 border border-emerald-800/60 rounded-xl flex items-center justify-between gap-3 group hover:border-emerald-500/50 transition-colors">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shrink-0">
-                    <WhatsappIcon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-emerald-300 font-mono font-medium">WhatsApp Direct Chat</div>
-                    <a 
-                      href="https://wa.me/916306572504?text=Hi%20Aman,%20I%20saw%20your%20Software%20Engineer%20portfolio."
-                      target="_blank" 
-                      rel="noreferrer"
-                      className="text-xs sm:text-sm font-bold text-white hover:text-emerald-400 transition-colors flex items-center gap-1"
-                    >
-                      <span>+91-6306572504</span>
-                      <ExternalLink className="w-3 h-3 text-emerald-400" />
-                    </a>
-                  </div>
-                </div>
-
-                <button
-                  onClick={handleCopyPhone}
-                  className="p-2 rounded-lg bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition-colors shrink-0"
-                  title="Copy Phone Number"
-                >
-                  {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-                </button>
-              </div>
-
               {/* Email Card */}
-              <div className="p-4 bg-slate-900/70 border border-slate-800 rounded-xl flex items-center justify-between gap-3">
+              <div className="p-4 bg-slate-900/70 border border-slate-800 rounded-xl flex items-center justify-between gap-3 group hover:border-cyan-500/40 transition-colors">
                 <div className="flex items-center gap-3 overflow-hidden">
                   <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
                     <Mail className="w-5 h-5" />
@@ -163,6 +112,29 @@ export default function Contact() {
                   title="Copy Email"
                 >
                   {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                </button>
+              </div>
+
+              {/* Phone Card */}
+              <div className="p-4 bg-slate-900/70 border border-slate-800 rounded-xl flex items-center justify-between gap-3 group hover:border-emerald-500/40 transition-colors">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-slate-400 font-mono">Direct Phone</div>
+                    <a href={`tel:${personalInfo.phone}`} className="text-xs sm:text-sm font-semibold text-white hover:text-emerald-400 transition-colors">
+                      {personalInfo.phone}
+                    </a>
+                  </div>
+                </div>
+
+                <button
+                  onClick={handleCopyPhone}
+                  className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors shrink-0"
+                  title="Copy Phone Number"
+                >
+                  {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
 
@@ -217,42 +189,42 @@ export default function Contact() {
 
           </div>
 
-          {/* Right Column: Interactive Multi-Channel Form (7 cols) */}
+          {/* Right Column: Direct Message Form (7 cols) */}
           <div className="lg:col-span-7">
             <div className="rounded-2xl bg-[#0c1222] border border-slate-800 p-6 sm:p-8 shadow-xl">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-lg font-bold text-white font-mono">
-                  Send Direct Message to Aman
+                  Send Direct Message
                 </h3>
                 <span className="text-xs font-mono text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-800">
-                  Instant Connect
+                  Instant Response
                 </span>
               </div>
               
               <p className="text-xs sm:text-sm text-slate-400 mb-6">
-                Fill the details below to instantly send to Aman via <span className="text-emerald-400 font-semibold">WhatsApp</span> or <span className="text-cyan-400 font-semibold">Email</span>.
+                Fill the details below to initiate direct email contact with Aman.
               </p>
 
-              {submitMode ? (
+              {submitted ? (
                 <div className="p-6 bg-emerald-950/40 border border-emerald-800/60 rounded-xl text-center space-y-3 animate-in fade-in">
                   <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
                   <h4 className="text-base font-bold text-white">
-                    {submitMode === "whatsapp" ? "WhatsApp Chat Launched!" : "Email Client Triggered!"}
+                    Email Client Triggered!
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-300">
-                    Your message draft was launched. You can also chat directly on WhatsApp at <span className="text-emerald-400 font-mono font-bold">+91-6306572504</span> or write to <span className="text-cyan-400 font-mono">{personalInfo.email}</span>.
+                    Your message draft was launched. You can also write directly to <span className="text-cyan-400 font-mono font-bold">{personalInfo.email}</span>.
                   </p>
                   <button
-                    onClick={() => setSubmitMode(null)}
+                    onClick={() => setSubmitted(false)}
                     className="px-4 py-2 text-xs font-mono bg-slate-900 border border-slate-700 text-slate-300 hover:text-white rounded-lg transition-colors"
                   >
                     Send Another Message
                   </button>
                 </div>
               ) : (
-                <form className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <label className="text-xs font-mono text-slate-300">Your Name *</label>
@@ -261,18 +233,19 @@ export default function Contact() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="e.g. John Doe / Hiring Lead"
+                        placeholder="e.g. Hiring Manager / Recruiter"
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 focus:border-cyan-500 focus:outline-none text-white text-xs sm:text-sm placeholder-slate-600 transition-colors"
                       />
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-slate-300">Your Email / Phone</label>
+                      <label className="text-xs font-mono text-slate-300">Your Email *</label>
                       <input
-                        type="text"
+                        type="email"
+                        required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="john@company.com or phone"
+                        placeholder="yourname@company.com"
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 focus:border-cyan-500 focus:outline-none text-white text-xs sm:text-sm placeholder-slate-600 transition-colors"
                       />
                     </div>
@@ -284,7 +257,7 @@ export default function Contact() {
                       type="text"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      placeholder="Opportunity for Software Engineer / AI Developer"
+                      placeholder="Software Engineer / Python Backend Developer Opportunity"
                       className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 focus:border-cyan-500 focus:outline-none text-white text-xs sm:text-sm placeholder-slate-600 transition-colors"
                     />
                   </div>
@@ -301,26 +274,13 @@ export default function Contact() {
                     />
                   </div>
 
-                  {/* Dual Action Buttons: WhatsApp & Email */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                    <button
-                      type="button"
-                      onClick={handleSendWhatsApp}
-                      className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 transition-all duration-200 active:scale-95"
-                    >
-                      <WhatsappIcon className="w-4 h-4" />
-                      <span>Send to WhatsApp</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={handleSendEmail}
-                      className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-200 active:scale-95"
-                    >
-                      <Mail className="w-4 h-4" />
-                      <span>Send via Email</span>
-                    </button>
-                  </div>
+                  <button
+                    type="submit"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-200 active:scale-95"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>Send Message to Aman Varma</span>
+                  </button>
                 </form>
               )}
             </div>

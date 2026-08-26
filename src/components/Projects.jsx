@@ -1,6 +1,21 @@
 import React, { useState } from "react";
-import { ExternalLink, Sparkles, Terminal, ArrowUpRight, CheckCircle2, Layers, Eye, Cpu, Database, Server } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "./Icons";
+import { 
+  ExternalLink, 
+  Sparkles, 
+  Terminal, 
+  ArrowUpRight, 
+  CheckCircle2, 
+  Layers, 
+  Eye, 
+  Cpu, 
+  Database,
+  Server,
+  Mic,
+  BrainCircuit,
+  GraduationCap,
+  FileCode2
+} from "lucide-react";
+import { GithubIcon } from "./Icons";
 import { projectsData } from "../data/portfolioData";
 import ProjectModal from "./ProjectModal";
 
@@ -8,11 +23,28 @@ export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [activeModalProject, setActiveModalProject] = useState(null);
 
-  const categories = ["All", "AI & LLM", "Data Engineering"];
+  const categories = ["All", "AI & Vision", "AI & Audio", "Backend & AI", "Data Engineering", "Full Stack"];
 
   const filteredProjects = selectedCategory === "All"
     ? projectsData
     : projectsData.filter(p => p.category === selectedCategory);
+
+  const getProjectIcon = (type) => {
+    switch (type) {
+      case "vision":
+        return <BrainCircuit className="w-6 h-6 text-purple-400" />;
+      case "audio":
+        return <Mic className="w-6 h-6 text-rose-400" />;
+      case "crm":
+        return <Server className="w-6 h-6 text-cyan-400" />;
+      case "data":
+        return <Database className="w-6 h-6 text-emerald-400" />;
+      case "education":
+        return <GraduationCap className="w-6 h-6 text-amber-400" />;
+      default:
+        return <FileCode2 className="w-6 h-6 text-cyan-400" />;
+    }
+  };
 
   return (
     <section id="projects" className="py-20 relative">
@@ -23,23 +55,23 @@ export default function Projects() {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/60 text-xs font-mono text-cyan-400 mb-3">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>FEATURED PRODUCTION PROJECTS</span>
+              <span>FEATURED PRODUCTION APPLICATIONS</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Crafted for Scale, Accuracy & Performance
+              Featured Systems, AI Models & Full-Stack Projects
             </h2>
             <p className="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
-              Live full-stack applications with integrated LLMs, high-coverage REST APIs, and automated CI/CD pipelines.
+              Live applications featuring Vision-Language diagnostics, real-time Voice Sentiment NLP, CRM pipelines, and data processing engines.
             </p>
           </div>
 
           {/* Category Filter Tabs */}
-          <div className="flex items-center gap-1.5 p-1 bg-slate-900/90 border border-slate-800 rounded-xl self-start md:self-auto">
+          <div className="flex flex-wrap items-center gap-1.5 p-1 bg-slate-900/90 border border-slate-800 rounded-xl self-start md:self-auto">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                   selectedCategory === cat
                     ? "bg-cyan-500 text-white shadow-sm shadow-cyan-500/30"
                     : "text-slate-400 hover:text-white hover:bg-slate-800/60"
@@ -52,33 +84,42 @@ export default function Projects() {
         </div>
 
         {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group relative rounded-2xl bg-gradient-to-b from-slate-900/90 to-[#0c1220]/90 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-xl hover:shadow-cyan-950/20 backdrop-blur-sm"
+              className="group relative rounded-2xl bg-gradient-to-b from-slate-900/95 to-[#0c1220]/95 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-xl hover:shadow-cyan-950/30 backdrop-blur-sm"
             >
               {/* Top Accent Gradient Bar */}
               <div className={`h-1.5 w-full bg-gradient-to-r ${project.color}`} />
 
               <div className="p-6 space-y-4 flex-1">
-                {/* Category & Status Bar */}
+                
+                {/* Header: Logo Icon & Category */}
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 border border-cyan-900/60 px-2.5 py-0.5 rounded-md">
-                    {project.category}
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-slate-950/90 border border-slate-700/80 flex items-center justify-center p-2.5 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                      {getProjectIcon(project.iconType)}
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 border border-cyan-900/60 px-2 py-0.5 rounded">
+                        {project.category}
+                      </span>
+                    </div>
+                  </div>
+
                   <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>Live Demo Active</span>
+                    <span>Live</span>
                   </div>
                 </div>
 
                 {/* Title & Tagline */}
                 <div>
-                  <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors leading-tight">
                     {project.title}
                   </h3>
-                  <p className="text-xs font-medium text-slate-400 mt-1">
+                  <p className="text-xs font-medium text-slate-400 mt-1 line-clamp-1">
                     {project.tagline}
                   </p>
                 </div>

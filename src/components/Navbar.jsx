@@ -9,7 +9,7 @@ import {
   Sparkles,
   Command
 } from "lucide-react";
-import { GithubIcon, LinkedinIcon, WhatsappIcon } from "./Icons";
+import { GithubIcon, LinkedinIcon } from "./Icons";
 import { personalInfo } from "../data/portfolioData";
 import profileImg from "../assets/profile.png";
 
@@ -66,17 +66,17 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
             <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-500 p-[1.5px] shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
               <img
                 src={profileImg}
-                alt="Aman Varma - Software Engineer"
+                alt="Aman Varma - Python & Software Engineer"
                 className="w-full h-full object-cover object-top rounded-[10px] bg-[#090d16]"
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-base sm:text-lg text-white tracking-tight flex items-center gap-1.5">
-                AMAN VARMA
+              <span className="font-bold text-base sm:text-lg text-white tracking-tight flex items-center gap-1.5">
+                Aman Varma
               </span>
-              <span className="text-[11px] font-mono text-cyan-400 font-semibold flex items-center gap-1">
+              <span className="text-[11px] font-mono text-cyan-400 font-medium flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                Software Engineer
+                Python & Backend Engineer
               </span>
             </div>
           </a>
@@ -95,17 +95,6 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
           </nav>
 
           <div className="hidden lg:flex items-center gap-2.5">
-            <a
-              href="https://wa.me/916306572504?text=Hi%20Aman,%20I%20saw%20your%20Software%20Engineer%20portfolio%20and%20would%20like%20to%20connect."
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-800/80 rounded-lg hover:text-white transition-all duration-200 shadow-sm"
-              title="Chat on WhatsApp"
-            >
-              <WhatsappIcon className="w-3.5 h-3.5 text-emerald-400" />
-              <span>WhatsApp</span>
-            </a>
-
             <button
               onClick={onOpenTerminal}
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono text-slate-300 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 rounded-lg hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-200 shadow-sm"
@@ -155,16 +144,6 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
           </div>
 
           <div className="flex items-center gap-2 md:hidden">
-            <a
-              href="https://wa.me/916306572504?text=Hi%20Aman,%20I%20saw%20your%20Software%20Engineer%20portfolio."
-              target="_blank"
-              rel="noreferrer"
-              className="p-2 text-emerald-400 bg-emerald-950/80 border border-emerald-800 rounded-lg"
-              title="WhatsApp"
-            >
-              <WhatsappIcon className="w-4 h-4" />
-            </a>
-
             <button
               onClick={onOpenTerminal}
               className="p-2 text-slate-300 hover:text-cyan-400 bg-slate-800/80 border border-slate-700/80 rounded-lg"
