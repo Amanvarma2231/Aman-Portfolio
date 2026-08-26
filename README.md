@@ -127,6 +127,8 @@ vercel
 
 ## 📬 Contact & Connect
 
+Aman Varma
+
 - **Email**: [amangurauli@gmail.com](mailto:amangurauli@gmail.com)
 - **Phone / WhatsApp**: [+91-6306572504](tel:+916306572504)
 - **LinkedIn**: [linkedin.com/in/aman-v-697771345](https://www.linkedin.com/in/aman-v-697771345)
