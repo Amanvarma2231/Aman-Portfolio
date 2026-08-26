@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { 
   X, 
   Download, 
@@ -12,19 +12,14 @@ import {
   GraduationCap, 
   Award,
   Layers,
-  FileDown
+  FileDown,
+  FileText
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 import { personalInfo, experienceData, educationData, certificationsData, skillsData, publicationsData, projectsData } from "../data/portfolioData";
 
 export default function ResumeModal({ isOpen, onClose }) {
-  const resumePrintRef = useRef(null);
-
   if (!isOpen) return null;
-
-  const handlePrint = () => {
-    window.print();
-  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
@@ -38,13 +33,24 @@ export default function ResumeModal({ isOpen, onClose }) {
           </div>
 
           <div className="flex items-center gap-2.5">
-            <button
-              onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white rounded-lg shadow-sm transition-all"
-              title="Print or Save as PDF"
+            {/* Direct Official PDF Download Button */}
+            <a
+              href="/Aman_Varma_Resume.pdf"
+              download="Aman_Varma_Resume.pdf"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-mono font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white rounded-lg shadow-md transition-all active:scale-95"
+              title="Download Original Resume PDF"
             >
-              <FileDown className="w-3.5 h-3.5" />
-              <span>Download / Print PDF</span>
+              <Download className="w-4 h-4" />
+              <span>Download Real PDF</span>
+            </a>
+
+            <button
+              onClick={() => window.print()}
+              className="hidden sm:inline-flex items-center gap-1 px-3 py-2 text-xs font-mono bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-300 rounded-lg transition-colors"
+              title="Print"
+            >
+              <Printer className="w-3.5 h-3.5" />
+              <span>Print</span>
             </button>
 
             <button
@@ -58,7 +64,7 @@ export default function ResumeModal({ isOpen, onClose }) {
 
         {/* Resume Document Viewer */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-8 bg-[#090d16] text-slate-200 font-sans space-y-6">
-          <div ref={resumePrintRef} className="max-w-3xl mx-auto bg-[#0e1628] border border-slate-800 rounded-xl p-6 sm:p-10 space-y-6 shadow-2xl text-slate-300 text-xs sm:text-sm leading-relaxed resume-print-area">
+          <div className="max-w-3xl mx-auto bg-[#0e1628] border border-slate-800 rounded-xl p-6 sm:p-10 space-y-6 shadow-2xl text-slate-300 text-xs sm:text-sm leading-relaxed resume-print-area">
             
             {/* Header / Contact Details */}
             <div className="text-center space-y-2 border-b border-slate-800 pb-5">
@@ -133,36 +139,8 @@ export default function ResumeModal({ isOpen, onClose }) {
                 Key Featured Projects
               </h2>
               
-              {/* VLM */}
-              <div className="space-y-1">
-                <div className="flex justify-between items-baseline text-xs font-bold text-white">
-                  <span>VLM Hallucination Studio</span>
-                  <span className="text-cyan-400 font-mono text-[11px]">Python, FastAPI, Multimodal VLMs, PyTorch</span>
-                </div>
-                <div className="text-[11px] font-mono text-slate-400">
-                  GitHub: github.com/Amanvarma2231/VLM-Hallucination-Studio | Demo: vlm-hallucination-studio.onrender.com
-                </div>
-                <ul className="list-disc list-inside text-xs text-slate-300 space-y-0.5">
-                  <li>Built diagnostic evaluation pipelines detecting visual hallucinations and attention map drift in vision-language models.</li>
-                </ul>
-              </div>
-
-              {/* Voice Sentiment */}
-              <div className="space-y-1 pt-1">
-                <div className="flex justify-between items-baseline text-xs font-bold text-white">
-                  <span>Voice Sentiment Analysis</span>
-                  <span className="text-cyan-400 font-mono text-[11px]">Python, Audio Signal Processing, NLP, Vercel</span>
-                </div>
-                <div className="text-[11px] font-mono text-slate-400">
-                  GitHub: github.com/Amanvarma2231/Voice-Sentiment12 | Demo: voice-sentiment12.vercel.app
-                </div>
-                <ul className="list-disc list-inside text-xs text-slate-300 space-y-0.5">
-                  <li>Engineered real-time acoustic waveform and textual transcription emotion classifier deployed on Vercel.</li>
-                </ul>
-              </div>
-
               {/* NLPCRM */}
-              <div className="space-y-1 pt-1">
+              <div className="space-y-1">
                 <div className="flex justify-between items-baseline text-xs font-bold text-white">
                   <span>NLPCRM – AI-Powered CRM Platform</span>
                   <span className="text-cyan-400 font-mono text-[11px]">Flask, Qwen 2.5 LLM, MySQL, OAuth 2.0</span>
@@ -189,18 +167,29 @@ export default function ResumeModal({ isOpen, onClose }) {
                 </ul>
               </div>
 
-              {/* Skill Development */}
+              {/* Portfolio */}
               <div className="space-y-1 pt-1">
                 <div className="flex justify-between items-baseline text-xs font-bold text-white">
-                  <span>Skill Development Platform</span>
-                  <span className="text-cyan-400 font-mono text-[11px]">React.js, Node.js, Tailwind CSS, Vercel</span>
+                  <span>Aman Varma – Developer Portfolio & Systems Platform</span>
+                  <span className="text-cyan-400 font-mono text-[11px]">React 19, Tailwind CSS, Python FastAPI, Vercel</span>
                 </div>
                 <div className="text-[11px] font-mono text-slate-400">
-                  GitHub: github.com/Amanvarma2231/skill-development | Demo: skill-development-eosin.vercel.app
+                  GitHub: github.com/Amanvarma2231/Aman-Portflio | Demo: aman-portflio-chi.vercel.app
                 </div>
                 <ul className="list-disc list-inside text-xs text-slate-300 space-y-0.5">
-                  <li>Interactive learning and milestone tracking portal with modular progress analytics.</li>
+                  <li>Engineered high-speed React SPA with interactive CLI terminal and live architecture telemetry.</li>
                 </ul>
+              </div>
+
+              {/* VLM */}
+              <div className="space-y-1 pt-1">
+                <div className="flex justify-between items-baseline text-xs font-bold text-white">
+                  <span>VLM Hallucination Studio</span>
+                  <span className="text-cyan-400 font-mono text-[11px]">Python, FastAPI, Multimodal VLMs, PyTorch</span>
+                </div>
+                <div className="text-[11px] font-mono text-slate-400">
+                  GitHub: github.com/Amanvarma2231/VLM-Hallucination-Studio | Demo: vlm-hallucination-studio.onrender.com
+                </div>
               </div>
             </div>
 

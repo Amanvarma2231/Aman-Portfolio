@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Projects from "./components/Projects";
 import Experience from "./components/Experience";
+import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import ArchitectureFlow from "./components/ArchitectureFlow";
 import Certifications from "./components/Certifications";
@@ -27,14 +27,14 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#090d16] text-slate-100 font-sans relative overflow-x-hidden selection:bg-cyan-500/30 selection:text-cyan-200">
       
-      {/* Top Fixed Navigation */}
+      {/* Fixed Navigation Header */}
       <Navbar
         onOpenResume={() => setResumeOpen(true)}
         onOpenTerminal={() => setTerminalOpen(true)}
         onOpenCommandPalette={() => setCommandPaletteOpen(true)}
       />
 
-      {/* Main Page Flow Hierarchy */}
+      {/* Page Flow Hierarchy */}
       <main>
         {/* 1. Hero: Name, Role, Master Headshot, Stats, Core CTAs */}
         <Hero
@@ -45,11 +45,11 @@ export default function App() {
         {/* 2. About Aman Varma: Story, Core Pillars, Large Photo Showcase */}
         <About />
 
-        {/* 3. Featured Projects: Live Demos, Repos, Metrics */}
-        <Projects />
-
-        {/* 4. Experience & Milestones: Druidot Consulting, Research, Education */}
+        {/* 3. Experience & Milestones: Druidot Consulting, Research, Education */}
         <Experience />
+
+        {/* 4. Featured Projects (After Experience): Live Demos, Repos, Metrics */}
+        <Projects />
 
         {/* 5. Skills Matrix: Domain Breakdown */}
         <Skills />

@@ -7,7 +7,8 @@ import {
   X, 
   Code2, 
   Sparkles,
-  Command
+  Command,
+  Download
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon, AVLogo } from "./Icons";
 import { personalInfo } from "../data/portfolioData";
@@ -27,8 +28,8 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
 
   const navLinks = [
     { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
     { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
     { name: "Skills", href: "#skills" },
     { name: "Architecture", href: "#architecture" },
     { name: "Certifications", href: "#certifications" },
@@ -64,7 +65,6 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
             href="#" 
             className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-xl p-1"
           >
-            {/* High-Tech AV Monogram Logo */}
             <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-700/80 p-1 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 group-hover:border-cyan-400/60 transition-all duration-300">
               <AVLogo className="w-8 h-8" />
             </div>
@@ -114,13 +114,16 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
               <span className="text-[10px] bg-slate-800 px-1 py-0.5 rounded text-slate-300">⌘K</span>
             </button>
 
-            <button
-              onClick={onOpenResume}
+            {/* Direct Official PDF Download in Header */}
+            <a
+              href="/Aman_Varma_Resume.pdf"
+              download="Aman_Varma_Resume.pdf"
               className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 rounded-lg shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-200 active:scale-95"
+              title="Download Resume PDF"
             >
               <FileText className="w-3.5 h-3.5" />
               <span>Resume</span>
-            </button>
+            </a>
 
             <div className="flex items-center gap-1 pl-1 border-l border-slate-800">
               <a
@@ -153,12 +156,13 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
               <TerminalIcon className="w-4 h-4" />
             </button>
 
-            <button
-              onClick={onOpenResume}
+            <a
+              href="/Aman_Varma_Resume.pdf"
+              download="Aman_Varma_Resume.pdf"
               className="px-2.5 py-1.5 text-xs font-medium text-white bg-cyan-600 rounded-lg"
             >
               Resume
-            </button>
+            </a>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
