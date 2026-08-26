@@ -1,5 +1,59 @@
 import React from "react";
 
+export function AVLogo({ className = "w-6 h-6", ...props }) {
+  return (
+    <svg 
+      className={className} 
+      viewBox="0 0 100 100" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <defs>
+        <linearGradient id="avGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#22d3ee" />
+          <stop offset="50%" stopColor="#6366f1" />
+          <stop offset="100%" stopColor="#10b981" />
+        </linearGradient>
+        <linearGradient id="avGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#a855f7" stopOpacity="0.8" />
+        </linearGradient>
+      </defs>
+      {/* Outer Hexagon / Tech Shield */}
+      <polygon 
+        points="50,4 92,26 92,74 50,96 8,74 8,26" 
+        stroke="url(#avGrad)" 
+        strokeWidth="4" 
+        fill="#090d16" 
+      />
+      {/* Stylized 'A' & 'V' Monogram */}
+      <path 
+        d="M28 70 L48 24 L52 24 L72 70" 
+        stroke="url(#avGrad)" 
+        strokeWidth="6" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+      />
+      <path 
+        d="M36 56 L64 56" 
+        stroke="#38bdf8" 
+        strokeWidth="5" 
+        strokeLinecap="round" 
+      />
+      <path 
+        d="M42 46 L50 64 L58 46" 
+        stroke="#4ade80" 
+        strokeWidth="4" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+      />
+      {/* Center Core Node */}
+      <circle cx="50" cy="56" r="3" fill="#ffffff" />
+    </svg>
+  );
+}
+
 export function GithubIcon({ className = "w-4 h-4", ...props }) {
   return (
     <svg 

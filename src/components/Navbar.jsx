@@ -9,7 +9,7 @@ import {
   Sparkles,
   Command
 } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "./Icons";
+import { GithubIcon, LinkedinIcon, AVLogo } from "./Icons";
 import { personalInfo } from "../data/portfolioData";
 import profileImg from "../assets/profile.png";
 
@@ -53,25 +53,24 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? "bg-[#090d16]/90 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/50 py-3" 
+        ? "bg-[#090d16]/90 backdrop-blur-md border-b border-slate-800/80 shadow-xl shadow-black/50 py-3" 
         : "bg-transparent py-4 sm:py-5"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
+          {/* Brand Logo & Name */}
           <a 
             href="#" 
             className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-xl p-1"
           >
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-500 p-[1.5px] shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
-              <img
-                src={profileImg}
-                alt="Aman Varma - Python & Software Engineer"
-                className="w-full h-full object-cover object-top rounded-[10px] bg-[#090d16]"
-              />
+            {/* High-Tech AV Monogram Logo */}
+            <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-700/80 p-1 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 group-hover:border-cyan-400/60 transition-all duration-300">
+              <AVLogo className="w-8 h-8" />
             </div>
+
             <div className="flex flex-col">
-              <span className="font-bold text-base sm:text-lg text-white tracking-tight flex items-center gap-1.5">
+              <span className="font-extrabold text-base sm:text-lg text-white tracking-tight flex items-center gap-1.5 group-hover:text-cyan-300 transition-colors">
                 Aman Varma
               </span>
               <span className="text-[11px] font-mono text-cyan-400 font-medium flex items-center gap-1">
@@ -81,6 +80,7 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
             </div>
           </a>
 
+          {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-2 bg-slate-900/70 border border-slate-800/80 rounded-full px-4 py-1.5 shadow-inner">
             {navLinks.map((link) => (
               <a
@@ -94,11 +94,12 @@ export default function Navbar({ onOpenResume, onOpenTerminal, onOpenCommandPale
             ))}
           </nav>
 
+          {/* Action Tools */}
           <div className="hidden lg:flex items-center gap-2.5">
             <button
               onClick={onOpenTerminal}
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono text-slate-300 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 rounded-lg hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-200 shadow-sm"
-              title="Open Interactive Terminal"
+              title="Open Interactive CLI Terminal"
             >
               <TerminalIcon className="w-3.5 h-3.5 text-cyan-400" />
               <span>CLI</span>
