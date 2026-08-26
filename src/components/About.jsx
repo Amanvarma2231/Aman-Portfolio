@@ -30,16 +30,16 @@ export default function About() {
             <span>ABOUT AMAN VARMA</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Driven by Clean Code & Intelligent Architecture
+            Engineering High-Throughput Backends & Intelligent Systems
           </h2>
           <p className="text-slate-400 text-sm sm:text-base">
-            Transitioning from academic foundations in Computer Science to delivering production-ready AI and backend systems.
+            Combining core computer science foundations with real-world Python engineering, cloud-deployed APIs, and modern frontends.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Big Prominent Photo Card with Tech Framing (5 cols) */}
+          {/* Left Column: Big Prominent Photo Card (5 cols) */}
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative group max-w-sm w-full">
               {/* Outer Glowing Border */}
@@ -58,14 +58,14 @@ export default function About() {
                 {/* Identity Tag Card */}
                 <div className="p-3.5 bg-slate-950/90 border border-slate-800 rounded-xl space-y-1 text-center font-mono">
                   <div className="text-base font-bold text-white tracking-tight">
-                    AMAN VARMA
+                    Aman Varma
                   </div>
                   <div className="text-xs text-cyan-400 font-semibold">
-                    Software Engineer • AI & Backend Specialist
+                    Python Developer • Software Engineer
                   </div>
                   <div className="text-[11px] text-slate-400 flex items-center justify-center gap-1.5 pt-1">
                     <MapPin className="w-3 h-3 text-slate-500" />
-                    <span>Ghaziabad, India • Open to Remote & Onsite</span>
+                    <span>Ghaziabad, India • Remote / Onsite</span>
                   </div>
                 </div>
 
@@ -92,19 +92,19 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right Column: Bio & Core Engineering Philosophy (7 cols) */}
+          {/* Right Column: Bio & Core Engineering Pillars (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
               <p>
-                I am a <strong className="text-white font-semibold">Software Engineer</strong> specializing in Python backend architecture, REST API design, and intelligent AI workflows. Currently working as a Python Developer Intern at <span className="text-cyan-300 font-medium">Druidot Consulting</span>, I build and maintain automated validation engines and standards-based microservices powering database operations.
+                I am a <strong className="text-white font-semibold">Software Engineer</strong> with a strong focus on Python backend architecture, REST API design, and data validation. In my role at <span className="text-cyan-300 font-medium">Druidot Consulting</span>, I develop automated verification test suites for database workflows and build standards-compliant microservices.
               </p>
 
               <p>
-                My journey began with a strong foundation in Computer Science & Engineering from <strong className="text-white">NITRA Technical Campus (AKTU)</strong>, where I developed a keen interest in distributed systems, data structures, and energy-efficient routing algorithms (presenting research at the <span className="text-purple-300">NGAISL-2026</span> International Conference).
+                Holding a B.Tech in Computer Science & Engineering from <strong className="text-white">NITRA Technical Campus (AKTU)</strong>, I have presented research on energy-efficient distributed network routing at the <span className="text-purple-300">NGAISL-2026</span> International Conference.
               </p>
 
               <p>
-                I believe that modern software must be <strong className="text-white">resilient, tested, and self-documenting</strong>. Whether designing a 25+ endpoint REST API with OAuth 2.0 security, integrating Qwen 2.5 LLMs for real-time lead extraction, or configuring 26 automated CI/CD unit tests in GitHub Actions, I focus on measurable impact and production reliability.
+                My development toolkit spans <strong className="text-white">FastAPI, Flask, React, Tailwind CSS, MySQL, MongoDB, and Docker</strong>. I prioritize test-driven quality with CI/CD automation, ensuring that every service is secure, documented, and production-ready.
               </p>
             </div>
 
@@ -113,7 +113,7 @@ export default function About() {
               <div className="p-4 bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 rounded-xl transition-colors space-y-1.5">
                 <div className="text-cyan-400 font-mono font-bold text-xs flex items-center gap-1.5">
                   <Code2 className="w-4 h-4" />
-                  <span>Clean Backend</span>
+                  <span>Python Backends</span>
                 </div>
                 <div className="text-xs text-slate-300 leading-relaxed font-sans">
                   FastAPI, Flask, Django, Pydantic, OAuth 2.0 & normalized SQL schemas.
@@ -123,20 +123,20 @@ export default function About() {
               <div className="p-4 bg-slate-900/60 border border-slate-800 hover:border-purple-500/40 rounded-xl transition-colors space-y-1.5">
                 <div className="text-purple-400 font-mono font-bold text-xs flex items-center gap-1.5">
                   <BrainCircuit className="w-4 h-4" />
-                  <span>Applied AI</span>
+                  <span>AI & Vision NLP</span>
                 </div>
                 <div className="text-xs text-slate-300 leading-relaxed font-sans">
-                  Qwen 2.5 LLM integration, zero-shot entity extraction & TF-IDF similarity.
+                  VLM diagnostics, Voice Sentiment signal processing & LLM lead extraction.
                 </div>
               </div>
 
               <div className="p-4 bg-slate-900/60 border border-slate-800 hover:border-emerald-500/40 rounded-xl transition-colors space-y-1.5">
                 <div className="text-emerald-400 font-mono font-bold text-xs flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4" />
-                  <span>Automated CI</span>
+                  <span>Automated CI/CD</span>
                 </div>
                 <div className="text-xs text-slate-300 leading-relaxed font-sans">
-                  26+ automated unit tests in GitHub Actions, eliminating manual release friction.
+                  26+ automated unit tests in GitHub Actions, zero manual deployment friction.
                 </div>
               </div>
             </div>

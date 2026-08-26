@@ -15,8 +15,7 @@ import {
   ExternalLink,
   MapPin,
   Phone,
-  ShieldCheck,
-  Briefcase
+  ShieldCheck
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 import { personalInfo } from "../data/portfolioData";
@@ -58,7 +57,7 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         
         {/* Main Hero Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Column: Big Master Portrait & Headline */}
           <div className="lg:col-span-7 space-y-6 text-left">
@@ -77,9 +76,9 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
             {/* Profile Avatar + Prominent Title Display */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-1">
               
-              {/* Large Master Portrait Headshot */}
+              {/* Extra Large Master Portrait Headshot */}
               <div className="relative group shrink-0">
-                <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-3xl p-[2.5px] bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-500 shadow-2xl shadow-cyan-500/30 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl p-[2.5px] bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-500 shadow-2xl shadow-cyan-500/30 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                   <img
                     src={profileImg}
                     alt="Aman Varma - Python Developer & Software Engineer"
@@ -99,7 +98,7 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
                   Aman Varma
                 </h1>
-                <div className="text-lg sm:text-xl font-bold bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent font-mono">
+                <div className="text-base sm:text-lg lg:text-xl font-bold bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent font-mono">
                   Python Developer • Backend Engineer • Software Engineer
                 </div>
               </div>
@@ -107,17 +106,17 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
 
             {/* Subtitle Bio */}
             <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed font-normal">
-              B.Tech Computer Science graduate building scalable <span className="text-white font-medium">Python (FastAPI & Flask) microservices</span>, 
+              B.Tech Computer Science graduate building high-performance <span className="text-white font-medium">Python (FastAPI & Flask) backends</span>, 
               <span className="text-cyan-300 font-medium"> 25+ production REST APIs</span>, 
-              <span className="text-teal-300 font-medium"> Vision-Language Model diagnostics & Voice Sentiment NLP</span>, and automated 
-              <span className="text-indigo-300 font-medium"> CI/CD validation pipelines (26 unit tests)</span>.
+              <span className="text-teal-300 font-medium"> React & Tailwind frontends</span>, and automated 
+              <span className="text-indigo-300 font-medium"> CI/CD data pipelines backed by MySQL & MongoDB</span>.
             </p>
 
             {/* Core Tech Stack Badges */}
             <div className="flex flex-wrap gap-2 pt-1 font-mono text-xs text-slate-300">
               <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-cyan-300">Python 3.12</span>
               <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-slate-200">FastAPI & Flask</span>
-              <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-teal-300">VLM & Audio NLP</span>
+              <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-teal-300">React & Tailwind</span>
               <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-slate-200">MySQL & MongoDB</span>
               <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-emerald-300">26 CI/CD Tests</span>
               <span className="px-2.5 py-1 bg-slate-900/90 border border-slate-700/80 rounded-lg text-purple-300">SAP Certified</span>
@@ -261,15 +260,16 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
                   </div>
                   <div className="space-y-1">
                     <div><span className="text-purple-400">from</span> fastapi <span className="text-purple-400">import</span> FastAPI, Depends</div>
-                    <div><span className="text-purple-400">from</span> vlm.diagnostics <span className="text-purple-400">import</span> HallucinationInspector</div>
-                    <div><span className="text-purple-400">from</span> audio.sentiment <span className="text-purple-400">import</span> WaveformClassifier</div>
+                    <div><span className="text-purple-400">from</span> nlpcrm.ai <span className="text-purple-400">import</span> QwenExtractor, SentimentEngine</div>
+                    <div><span className="text-purple-400">from</span> druidot.validation <span className="text-purple-400">import</span> schema_guard</div>
                     <div className="text-slate-500 pt-1"># High-throughput AI backend pipeline</div>
-                    <div><span className="text-blue-400">@app.post</span>(<span className="text-emerald-300">"/api/v1/analyze-multimodal"</span>)</div>
-                    <div><span className="text-purple-400">async def</span> <span className="text-amber-300">process_stream</span>(payload: ModelStream):</div>
-                    <div className="pl-4">vlm_res = <span className="text-cyan-300">HallucinationInspector</span>.eval(payload.vlm)</div>
-                    <div className="pl-4">sentiment = <span className="text-cyan-300">WaveformClassifier</span>.infer(payload.audio)</div>
-                    <div className="pl-4 text-purple-400">await <span className="text-white">db.analytics.upsert</span>(vlm_res, sentiment)</div>
-                    <div className="pl-4"><span className="text-purple-400">return</span> &#123;<span className="text-emerald-300">"status"</span>: <span className="text-emerald-300">"success"</span>, <span className="text-emerald-300">"data"</span>: vlm_res&#125;</div>
+                    <div><span className="text-blue-400">@app.post</span>(<span className="text-emerald-300">"/api/v1/extract-lead"</span>)</div>
+                    <div><span className="text-purple-400">async def</span> <span className="text-amber-300">process_inbound</span>(payload: LeadPayload):</div>
+                    <div className="pl-4">validated = <span className="text-cyan-300">schema_guard</span>(payload.data)</div>
+                    <div className="pl-4">lead_info = <span className="text-cyan-300">QwenExtractor</span>.infer(validated.text)</div>
+                    <div className="pl-4">score = <span className="text-cyan-300">SentimentEngine</span>.calc_score(lead_info)</div>
+                    <div className="pl-4 text-purple-400">await <span className="text-white">db.leads.upsert</span>(lead_info, score)</div>
+                    <div className="pl-4"><span className="text-purple-400">return</span> &#123;<span className="text-emerald-300">"status"</span>: <span className="text-emerald-300">"success"</span>, <span className="text-emerald-300">"score"</span>: score&#125;</div>
                   </div>
                 </div>
               </div>
@@ -278,15 +278,15 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
               <div className="px-4 py-2.5 bg-slate-950/90 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>VLM Diagnostics + Voice NLP</span>
+                  <span>Qwen 2.5 LLM + 26 CI Tests</span>
                 </div>
                 <a 
-                  href="https://vlm-hallucination-studio.onrender.com" 
+                  href="https://npcrm-1.onrender.com" 
                   target="_blank" 
                   rel="noreferrer"
                   className="text-cyan-400 hover:text-cyan-300 flex items-center gap-1 hover:underline"
                 >
-                  <span>Test Studio</span>
+                  <span>Test Demo</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
@@ -298,7 +298,7 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
                 <CheckCircle2 className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xs font-semibold text-white">Backend & AI Specialist</div>
+                <div className="text-xs font-semibold text-white">Full Stack & Backend Specialist</div>
                 <div className="text-[11px] font-mono text-slate-400">25+ REST Endpoints Architected</div>
               </div>
             </div>

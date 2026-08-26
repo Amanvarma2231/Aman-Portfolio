@@ -1,24 +1,108 @@
 export const personalInfo = {
   name: "Aman Varma",
-  headline: "Python Developer & Software Engineer building high-throughput backends, intelligent AI systems, and robust data pipelines.",
-  subheadline: "Specializing in Python (Flask & FastAPI), LLM / VLM vision integrations, Voice Sentiment processing, and automated ETL data validation.",
+  headline: "Python Developer & Software Engineer specializing in scalable backends, FastAPI/Flask services, and intelligent AI architectures.",
+  subheadline: "Hands-on experience developing REST APIs, ETL data validation engines, and high-performance React frontends backed by relational & NoSQL databases.",
   location: "Ghaziabad, India",
   email: "amangurauli@gmail.com",
   phone: "+91-6306572504",
   github: "https://github.com/Amanvarma2231",
   githubUsername: "Amanvarma2231",
   linkedin: "https://www.linkedin.com/in/aman-v-697771345",
-  status: "Available for Python Developer / Backend Engineer / Software Engineer roles",
-  bio: "B.Tech Computer Science graduate with hands-on experience as a Python Developer at Druidot Consulting. Passionate about architecting resilient backend systems, LLM/VLM hallucination mitigation engines, voice sentiment pipelines, and automated CI/CD workflows.",
+  status: "Open for Python Developer / Backend Engineer / Software Engineer roles",
+  bio: "Software Engineer with industry experience as a Python Developer Intern at Druidot Consulting. Skilled in architecting 25+ REST API endpoints, automated CI/CD validation suites, Vision-Language diagnostics, and full-stack React systems.",
   stats: [
     { label: "REST APIs Architected", value: "25+", desc: "Full CRUD & Auth Coverage" },
     { label: "Automated CI/CD Tests", value: "26+", desc: "GitHub Actions Pipeline" },
-    { label: "Live Deployed Projects", value: "5+", desc: "Vercel & Render Cloud" },
+    { label: "Production Records", value: "1,000+", desc: "MySQL & MongoDB Normalized" },
     { label: "DSA Problems Solved", value: "100+", desc: "Algorithms & Structures" },
   ]
 };
 
 export const projectsData = [
+  {
+    id: "nlpcrm",
+    title: "NLPCRM – AI-Powered CRM Platform",
+    tagline: "High-Throughput Backend Architecture & Lead Intelligence Engine",
+    category: "Backend & APIs",
+    featured: true,
+    badges: ["Python", "Flask", "MySQL / SQLite", "REST APIs", "OAuth 2.0", "Qwen 2.5 LLM", "Render"],
+    iconType: "crm",
+    description: "Enterprise backend platform featuring 25+ normalized REST API endpoints, session authentication, CSRF mitigation, Google OAuth 2.0, and automated Qwen 2.5 lead extraction.",
+    highlights: [
+      "Architected 25+ production REST API endpoints across contacts, AI/NLP, email, and webhook modules with full CRUD coverage.",
+      "Integrated Qwen 2.5 LLM via Hugging Face for automated lead extraction & 0–10 lead scoring with sentiment analysis.",
+      "Implemented enterprise security: session auth, CSRF protection, Google OAuth 2.0, and strict rate-limiting.",
+      "Synchronized data pipelines across WhatsApp, Email, and Teams into a normalized relational schema."
+    ],
+    metrics: [
+      { name: "REST Endpoints", value: "25+" },
+      { name: "Lead Scoring", value: "0–10 AI Dynamic" },
+      { name: "Security Incidents", value: "0" },
+      { name: "Live Uptime", value: "99.9%" }
+    ],
+    liveDemo: "https://npcrm-1.onrender.com",
+    github: "https://github.com/Amanvarma2231/NLPCRM",
+    architecture: "Client Request -> Flask Auth & Rate Limiter -> Qwen 2.5 Hugging Face Inference -> Sentiment & Lead Scoring -> MySQL / SQLite Transaction -> Real-time CRM Dashboard",
+    color: "from-cyan-500/30 via-blue-500/20 to-teal-500/10",
+    borderGlow: "border-cyan-500/40",
+    accentColor: "cyan"
+  },
+  {
+    id: "content-desk",
+    title: "Content Desk – AI & Data Processing Platform",
+    tagline: "Automated SEO Scoring, TF-IDF Deduplication & Data Quality Pipeline",
+    category: "Data Engineering",
+    featured: true,
+    badges: ["Python", "Flask", "Tkinter", "SQLite", "TF-IDF", "REST APIs", "GitHub Actions CI"],
+    iconType: "data",
+    description: "Dual-interface content data platform with a unified core engine powering a Flask web dashboard and a Tkinter desktop suite with 26 automated CI/CD unit tests.",
+    highlights: [
+      "Designed a decoupled shared engine consumed by both Flask web dashboard and Tkinter desktop GUI without business logic duplication.",
+      "Built an SEO-scoring crawler and TF-IDF near-duplicate detector with automated Keep/Refresh/Consolidate recommendations.",
+      "Configured a GitHub Actions CI pipeline executing 26 automated unit tests on every pull request.",
+      "Engineered high-speed SQLite persistence with structured CSV/JSON batch data export workflows."
+    ],
+    metrics: [
+      { name: "CI/CD Unit Tests", value: "26 Tests Passing" },
+      { name: "Engine Duplication", value: "0%" },
+      { name: "Export Formats", value: "CSV, JSON, SQLite" },
+      { name: "Analysis Latency", value: "< 800ms" }
+    ],
+    liveDemo: "https://content-desk.onrender.com",
+    github: "https://github.com/Amanvarma2231/Content-Desk",
+    architecture: "Data Ingestion -> TF-IDF Vectorizer -> Cosine Similarity & SEO Scorer -> Decision Engine (Keep/Refresh/Remove) -> Dual UI (Flask / Tkinter) -> GitHub Actions CI",
+    color: "from-emerald-500/30 via-teal-500/20 to-cyan-500/10",
+    borderGlow: "border-emerald-500/40",
+    accentColor: "emerald"
+  },
+  {
+    id: "portfolio-app",
+    title: "Aman Varma – Portfolio & Systems Showcase",
+    tagline: "High-Performance SPA with CLI Terminal, Architecture Telemetry & API Suite",
+    category: "Full Stack",
+    featured: true,
+    badges: ["React 19", "Tailwind CSS", "Python FastAPI", "Vite", "Vercel", "Render"],
+    iconType: "portfolio",
+    description: "2026 developer portfolio showcasing full-stack capabilities, interactive CLI developer terminal, system architecture simulator, and live project integrations.",
+    highlights: [
+      "Built a high-speed React SPA with Tailwind CSS glassmorphism, responsive breakpoints, and zero layout shift.",
+      "Engineered an interactive developer CLI terminal supporting bash-style commands and real-time output.",
+      "Integrated step-by-step pipeline architecture simulator modeling client auth to cloud database persistence.",
+      "Configured continuous deployment pipelines across Vercel and Render with optimized bundle size."
+    ],
+    metrics: [
+      { name: "Lighthouse Score", value: "99/100" },
+      { name: "Framework", value: "React 19 + Vite" },
+      { name: "Bundle Load", value: "< 1.2s" },
+      { name: "Deployment", value: "Vercel Edge" }
+    ],
+    liveDemo: "https://aman-portflio-chi.vercel.app",
+    github: "https://github.com/Amanvarma2231/Aman-Portflio",
+    architecture: "React SPA UI -> Vite Optimized Bundler -> Tailwind Design System -> Interactive Modals & Terminal -> Vercel Edge Global CDN",
+    color: "from-blue-500/30 via-indigo-500/20 to-cyan-500/10",
+    borderGlow: "border-blue-500/40",
+    accentColor: "blue"
+  },
   {
     id: "vlm-hallucination",
     title: "VLM Hallucination Studio",
@@ -27,12 +111,12 @@ export const projectsData = [
     featured: true,
     badges: ["Python", "FastAPI", "Vision-Language Models", "PyTorch", "Render", "REST APIs"],
     iconType: "vision",
-    description: "An advanced diagnostic research platform to detect, evaluate, and mitigate hallucinations in modern Vision-Language Models (VLMs) across multimodal visual reasoning tasks.",
+    description: "Diagnostic platform to detect, evaluate, and mitigate hallucinations in modern Vision-Language Models (VLMs) across multimodal reasoning tasks.",
     highlights: [
       "Built structured evaluation pipelines to benchmark object hallucination and semantic consistency in multimodal models.",
-      "Engineered high-performance backend inference endpoints with FastAPI, delivering low-latency visual reasoning diagnostics.",
-      "Created an intuitive visual inspector to compare ground-truth image tokens against model attention maps.",
-      "Deployed on Render Cloud with automated health checks and containerized dependencies."
+      "Engineered backend inference endpoints with FastAPI, delivering low-latency visual reasoning diagnostics.",
+      "Created an intuitive visual inspector comparing ground-truth image tokens against model attention maps.",
+      "Deployed on Render Cloud with containerized dependencies and health monitoring."
     ],
     metrics: [
       { name: "Model Support", value: "Multimodal VLMs" },
@@ -53,13 +137,13 @@ export const projectsData = [
     tagline: "Real-Time Acoustic & Textual Speech Emotion Intelligence",
     category: "AI & Audio",
     featured: true,
-    badges: ["Python", "Speech-to-Text", "Audio Signal Processing", "NLP", "Vercel", "REST APIs"],
+    badges: ["Python", "Audio Signal Processing", "NLP", "Vercel", "REST APIs"],
     iconType: "audio",
-    description: "Multi-modal emotion and sentiment extraction suite that processes speech audio waveforms and transcribed text to classify speaker intent, valence, and emotional arousal.",
+    description: "Multimodal emotion and sentiment extraction suite processing speech audio waveforms and transcribed text to classify speaker intent and emotional valence.",
     highlights: [
-      "Engineered speech preprocessing pipelines for noise reduction, spectrogram feature extraction, and pitch analysis.",
-      "Integrated real-time sentiment scoring combining acoustic tonal cues with NLP lexical classification.",
-      "Developed high-throughput API endpoints supporting audio file uploads and live microphone streaming.",
+      "Engineered speech preprocessing pipelines for noise reduction, spectrogram extraction, and pitch analysis.",
+      "Integrated sentiment scoring combining acoustic tonal cues with NLP lexical classification.",
+      "Developed high-throughput API endpoints supporting audio uploads and live streaming.",
       "Deployed on Vercel with serverless routing and optimized bundle loading."
     ],
     metrics: [
@@ -76,70 +160,14 @@ export const projectsData = [
     accentColor: "rose"
   },
   {
-    id: "nlpcrm",
-    title: "NLPCRM – AI-Powered CRM Platform",
-    tagline: "Intelligent Lead Extraction & Real-Time Sentiment Analysis Engine",
-    category: "Backend & AI",
-    featured: true,
-    badges: ["Python", "Flask", "Qwen 2.5 (LLM)", "MySQL / SQLite", "REST APIs", "OAuth 2.0", "Render"],
-    iconType: "crm",
-    description: "Production-ready CRM platform featuring automated lead extraction from unstructured text via Qwen 2.5 LLM, 25+ normalized REST API endpoints, and multi-channel synchronization.",
-    highlights: [
-      "Architected 25+ REST API endpoints across contacts, AI/NLP, email, and webhook modules with full CRUD coverage.",
-      "Integrated Qwen 2.5 LLM (via Hugging Face) for zero-shot lead extraction & automated 0–10 lead scoring with sentiment analysis.",
-      "Engineered production-grade security: session auth, CSRF protection, Google OAuth 2.0, and strict rate-limiting.",
-      "Synchronized data pipelines across WhatsApp, Email, and Teams channels into a normalized MySQL/SQLite schema."
-    ],
-    metrics: [
-      { name: "REST Endpoints", value: "25+" },
-      { name: "Lead Scoring", value: "0–10 AI Dynamic" },
-      { name: "Security Incidents", value: "0" },
-      { name: "Live Uptime", value: "99.9%" }
-    ],
-    liveDemo: "https://npcrm-1.onrender.com",
-    github: "https://github.com/Amanvarma2231/NLPCRM",
-    architecture: "Frontend / Webhook -> Flask Auth & Rate Limiter -> Qwen 2.5 Hugging Face Inference -> Sentiment & Lead Scoring -> MySQL / SQLite Transaction -> Real-time CRM Dashboard",
-    color: "from-cyan-500/30 via-blue-500/20 to-teal-500/10",
-    borderGlow: "border-cyan-500/40",
-    accentColor: "cyan"
-  },
-  {
-    id: "content-desk",
-    title: "Content Desk – AI Content & Data Processing",
-    tagline: "Automated SEO Scoring, TF-IDF Deduplication & Content Auditing",
-    category: "Data Engineering",
-    featured: true,
-    badges: ["Python", "Flask", "Tkinter", "SQLite", "TF-IDF", "REST APIs", "GitHub Actions CI"],
-    iconType: "data",
-    description: "Dual-interface content intelligence platform with unified core engine powering both a Flask web dashboard and a Tkinter desktop suite with automated CI/CD validation.",
-    highlights: [
-      "Designed a decoupled shared core engine consumed by both Flask web dashboard and Tkinter desktop GUI without duplicating business logic.",
-      "Built an SEO-scoring crawler and TF-IDF near-duplicate detector with automated Keep/Refresh/Consolidate/Remove recommendations.",
-      "Configured a robust GitHub Actions CI pipeline executing 26 automated unit tests on every pull request.",
-      "Engineered high-speed SQLite persistence with structured CSV/JSON batch export workflows."
-    ],
-    metrics: [
-      { name: "CI/CD Unit Tests", value: "26 Tests Passing" },
-      { name: "Engine Duplication", value: "0%" },
-      { name: "Export Formats", value: "CSV, JSON, SQLite" },
-      { name: "Analysis Latency", value: "< 800ms" }
-    ],
-    liveDemo: "https://content-desk.onrender.com",
-    github: "https://github.com/Amanvarma2231/Content-Desk",
-    architecture: "Data Ingestion -> TF-IDF Vectorizer -> Cosine Similarity & SEO Scorer -> Decision Engine (Keep/Refresh/Remove) -> Dual UI (Flask / Tkinter) -> GitHub Actions CI",
-    color: "from-emerald-500/30 via-teal-500/20 to-cyan-500/10",
-    borderGlow: "border-emerald-500/40",
-    accentColor: "emerald"
-  },
-  {
     id: "skill-development",
     title: "Skill Development Platform",
-    tagline: "Interactive Learning, Skill Tracking & Assessment Hub",
+    tagline: "Interactive Learning, Skill Tracking & Assessment Portal",
     category: "Full Stack",
     featured: true,
     badges: ["React.js", "Node.js", "REST APIs", "Tailwind CSS", "Vercel", "Analytics"],
     iconType: "education",
-    description: "A modern developer and student skill development tracking portal featuring modular course curricula, progress analytics, and responsive interactive exercises.",
+    description: "Developer and student skill development tracking portal featuring modular course curricula, progress analytics, and responsive interactive exercises.",
     highlights: [
       "Engineered an interactive curriculum roadmap with real-time milestone tracking and progress visualization.",
       "Developed modular REST APIs for user assessment scoring, module completion, and badges.",
@@ -176,7 +204,7 @@ export const experienceData = [
       "Designed optimized database schemas supporting AI-driven application features, improving query performance on 1,000+ live records.",
       "Automated CI/CD build-test-deploy workflows via Git and GitHub Actions, reducing manual release overhead."
     ],
-    skills: ["Python", "Flask", "FastAPI", "MySQL", "MongoDB", "Data Validation", "ETL Pipelines", "GitHub Actions", "Docker"]
+    skills: ["Python", "FastAPI", "Flask", "MySQL", "MongoDB", "Data Validation", "ETL Pipelines", "GitHub Actions", "Docker"]
   }
 ];
 
