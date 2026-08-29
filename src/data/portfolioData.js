@@ -280,7 +280,7 @@ export const skillsData = {
     { name: "Node.js & Express.js", level: "Intermediate", desc: "Microservices, Routing, Middleware" },
     { name: "RESTful APIs & Web Services", level: "Expert", desc: "API Design, Specifications, CRUD, OpenAPI" }
   ],
-  apiAndIntegration: [
+  apiIntegration: [
     { name: "REST API Design", level: "Expert", desc: "Standards-based URI structures, HTTP methods, Status codes" },
     { name: "API Specifications & OpenAPI", level: "Advanced", desc: "Swagger documentation, Schema definitions" },
     { name: "API Testing", level: "Advanced", desc: "Postman, PyTest, Automated endpoint validation" },
@@ -298,7 +298,7 @@ export const skillsData = {
     { name: "Data Validation", level: "Expert", desc: "SQL/NoSQL data validation, Schema checks, Integrity" },
     { name: "Debugging & Code Review", level: "Advanced", desc: "Error tracking, Root-cause analysis, Code quality" }
   ],
-  devopsAndTools: [
+  devopsTools: [
     { name: "Git & GitHub", level: "Advanced", desc: "Branching, Pull Requests, Code Reviews, Version control" },
     { name: "GitHub Actions & CI/CD", level: "Advanced", desc: "Automated Build, Test & Lint Pipelines (26 tests)" },
     { name: "Docker", level: "Intermediate", desc: "Containerization, Dockerfile, Container deployment" },

@@ -27,12 +27,12 @@ export default function ResumeModal({ isOpen, onClose }) {
           </div>
 
           <div className="flex items-center gap-2.5">
-            {/* Direct Official PDF Download Button */}
+            {/* Direct PDF Download Button */}
             <a
               href="/Aman_Varma_Resume.pdf"
               download="Aman_Varma_Resume.pdf"
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium font-mono bg-blue-600 hover:bg-blue-500 text-white rounded-lg shadow-sm transition-all active:scale-95"
-              title="Download Original Resume PDF"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium font-mono bg-blue-600 hover:bg-blue-500 text-white rounded-lg shadow-sm transition-all active:scale-95 animate-pulse"
+              title="Download Resume PDF"
             >
               <Download className="w-4 h-4" />
               <span>Download PDF</span>
@@ -56,14 +56,29 @@ export default function ResumeModal({ isOpen, onClose }) {
           </div>
         </div>
 
-        {/* Real Document Preview Area (Formatted Exactly like the Resume) */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-8 bg-[#070a10] text-slate-900 font-sans">
-          <div className="max-w-3xl mx-auto bg-white text-slate-900 rounded-lg p-6 sm:p-10 space-y-5 shadow-2xl text-[13px] leading-relaxed border border-slate-200">
+        {/* View Frame: Left: Visual Page 1 Preview, Right: Document Info */}
+        <div className="flex-1 overflow-y-auto p-4 sm:p-8 bg-[#070a10] flex flex-col lg:flex-row gap-6 items-start justify-center">
+          
+          {/* Visual PDF Page 1 Preview (Left Column) */}
+          <div className="w-full lg:w-[500px] shrink-0 bg-white border border-slate-200 rounded-lg p-2 shadow-xl">
+            <div className="text-center text-[10px] text-slate-500 font-mono pb-1 border-b border-slate-100 flex items-center justify-between px-2">
+              <span>PAGE 1 PREVIEW</span>
+              <span className="text-blue-600 font-semibold">Official Document</span>
+            </div>
+            <img 
+              src="/resume_preview.png" 
+              alt="Aman Varma Resume Page 1 Preview" 
+              className="w-full h-auto rounded border border-slate-150 mt-1 shadow-sm"
+            />
+          </div>
+
+          {/* HTML Render Details (Right Column) */}
+          <div className="flex-1 max-w-2xl bg-white text-slate-900 rounded-lg p-6 sm:p-8 space-y-5 shadow-xl text-[13px] leading-relaxed border border-slate-200">
             
             {/* Document Header */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-300 pb-4 gap-2">
               <div>
-                <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-serif">
+                <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight font-serif">
                   Aman Varma
                 </h1>
                 <div className="flex items-center gap-2 text-xs text-blue-700 font-medium pt-1">
@@ -215,6 +230,7 @@ export default function ResumeModal({ isOpen, onClose }) {
             </div>
 
           </div>
+
         </div>
 
       </div>
