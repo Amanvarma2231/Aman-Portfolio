@@ -2,65 +2,57 @@ import React from "react";
 import { 
   User, 
   Code2, 
-  BrainCircuit, 
+  Server, 
   ShieldCheck, 
-  Layers, 
-  Sparkles, 
+  Database, 
   CheckCircle2, 
   MapPin, 
-  Briefcase, 
-  GraduationCap, 
-  Terminal,
-  Cpu,
-  Database,
-  Server
+  Workflow, 
+  GraduationCap
 } from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
 import profileImg from "../assets/profile.png";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-[#090d16]/90 relative border-t border-slate-800/80">
+    <section id="about" className="py-20 bg-[#080c14] relative border-t border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/60 text-xs font-mono text-cyan-400">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-mono text-blue-400">
             <User className="w-3.5 h-3.5" />
             <span>ABOUT AMAN VARMA</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Architecting Resilient Backends & Intelligent Systems
+            Backend Engineering, RESTful APIs & Data Workflows
           </h2>
           <p className="text-slate-400 text-sm sm:text-base">
-            Transitioning computer science foundations into high-performance Python microservices, automated validation suites, and cloud data architectures.
+            Developing scalable backend services, validating database integrity, and automating CI/CD test workflows in agile environments.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Big Master Portrait Card (5 cols) */}
+          {/* Left Column: Framed Master Portrait Card (5 cols) */}
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative group max-w-sm w-full">
-              {/* Outer Glowing Border */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-500 rounded-3xl blur-md opacity-40 group-hover:opacity-75 transition duration-500"></div>
-              
-              <div className="relative rounded-3xl bg-[#0c1222] border border-slate-700/80 p-4 shadow-2xl space-y-4">
+              <div className="rounded-3xl bg-[#0d131f] border border-slate-800 p-4 shadow-xl space-y-4 hover:border-slate-700 transition-all duration-300">
                 {/* Large Master Portrait */}
                 <div className="w-full aspect-square rounded-2xl overflow-hidden bg-slate-950 border border-slate-800">
                   <img
                     src={profileImg}
                     alt="Aman Varma - Software Engineer"
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-300"
                   />
                 </div>
 
                 {/* Identity Tag Card */}
-                <div className="p-3.5 bg-slate-950/90 border border-slate-800 rounded-xl space-y-1 text-center font-mono">
+                <div className="p-3.5 bg-slate-900/90 border border-slate-800 rounded-xl space-y-1 text-center font-mono">
                   <div className="text-base font-bold text-white tracking-tight">
                     Aman Varma
                   </div>
-                  <div className="text-xs text-cyan-400 font-semibold">
+                  <div className="text-xs text-blue-400 font-medium">
                     Python Developer • Software Engineer
                   </div>
                   <div className="text-[11px] text-slate-400 flex items-center justify-center gap-1.5 pt-1">
@@ -76,11 +68,11 @@ export default function About() {
                     <span>Druidot Intern</span>
                   </div>
                   <div className="p-2 bg-slate-900/60 rounded-lg border border-slate-800 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                    <span>SAP Certified</span>
+                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                    <span>25+ REST APIs</span>
                   </div>
                   <div className="p-2 bg-slate-900/60 rounded-lg border border-slate-800 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
                     <span>NGAISL-26 Paper</span>
                   </div>
                   <div className="p-2 bg-slate-900/60 rounded-lg border border-slate-800 flex items-center gap-1.5">
@@ -96,47 +88,47 @@ export default function About() {
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
               <p>
-                I am a <strong className="text-white font-semibold">Python Developer & Software Engineer</strong> dedicated to building high-throughput backend services, robust REST APIs, and automated data pipelines. Currently interning at <span className="text-cyan-300 font-medium">Druidot Consulting (OPC) Pvt. Ltd.</span>, I engineer automated test suites and schema validation checks across MySQL and MongoDB data stores.
+                I am a <strong className="text-white font-semibold">B.Tech Computer Science & Engineering graduate</strong> with hands-on experience developing <strong className="text-white">RESTful APIs, backend services, database-driven applications, automated testing workflows, and CI/CD pipelines</strong> in agile sprint environments.
               </p>
 
               <p>
-                Holding a B.Tech in Computer Science & Engineering from <strong className="text-white">NITRA Technical Campus (AKTU)</strong>, I have presented research on energy-efficient distributed network routing at the <span className="text-purple-300">NGAISL-2026</span> International Conference, focusing on algorithmic optimization and throughput efficiency.
+                Currently working as a <strong className="text-white">Python Developer Intern at Druidot Consulting (OPC) Pvt. Ltd.</strong>, I develop and maintain RESTful endpoints using Python, Flask, and FastAPI. I build automated test suites and validation checks across MySQL and MongoDB to protect schema integrity and eliminate manual verification effort.
               </p>
 
               <p>
-                My core backend stack includes <strong className="text-white">Python 3.12, FastAPI, Flask, Django, MySQL, PostgreSQL, MongoDB, SQLite, and Docker</strong>. I believe in test-driven engineering with automated CI/CD pipelines (26 unit tests in GitHub Actions), ensuring every system is deterministic, secure, and production-ready.
+                Having graduated from <strong className="text-white">NITRA Technical Campus (AKTU), Uttar Pradesh</strong>, I presented research on energy-efficient clustering protocols at the <span className="text-blue-300">NGAISL-2026</span> International Conference. My development toolkit centers around <strong className="text-white">Python, FastAPI, Flask, SQL/NoSQL databases, SQLAlchemy, Docker, and GitHub Actions CI (26 automated unit tests)</strong>.
               </p>
             </div>
 
             {/* Core Engineering Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
-              <div className="p-4 bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 rounded-xl transition-colors space-y-1.5">
-                <div className="text-cyan-400 font-mono font-bold text-xs flex items-center gap-1.5">
-                  <Code2 className="w-4 h-4" />
-                  <span>Python Backends</span>
+              <div className="p-4 bg-slate-900/80 border border-slate-800 hover:border-slate-700 rounded-xl transition-colors space-y-1.5">
+                <div className="text-blue-400 font-mono font-bold text-xs flex items-center gap-1.5">
+                  <Server className="w-4 h-4" />
+                  <span>RESTful APIs</span>
                 </div>
                 <div className="text-xs text-slate-300 leading-relaxed font-sans">
-                  FastAPI, Flask, Django, Pydantic, OAuth 2.0 & normalized SQL schemas.
+                  FastAPI, Flask, OpenAPI specifications, CRUD, OAuth 2.0 & JWT access control.
                 </div>
               </div>
 
-              <div className="p-4 bg-slate-900/60 border border-slate-800 hover:border-purple-500/40 rounded-xl transition-colors space-y-1.5">
-                <div className="text-purple-400 font-mono font-bold text-xs flex items-center gap-1.5">
-                  <BrainCircuit className="w-4 h-4" />
-                  <span>AI & Data Pipelines</span>
-                </div>
-                <div className="text-xs text-slate-300 leading-relaxed font-sans">
-                  VLM diagnostics, Voice Sentiment signal processing & LLM lead extraction.
-                </div>
-              </div>
-
-              <div className="p-4 bg-slate-900/60 border border-slate-800 hover:border-emerald-500/40 rounded-xl transition-colors space-y-1.5">
+              <div className="p-4 bg-slate-900/80 border border-slate-800 hover:border-slate-700 rounded-xl transition-colors space-y-1.5">
                 <div className="text-emerald-400 font-mono font-bold text-xs flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4" />
-                  <span>Automated CI/CD</span>
+                  <Database className="w-4 h-4" />
+                  <span>Databases & ORM</span>
                 </div>
                 <div className="text-xs text-slate-300 leading-relaxed font-sans">
-                  26+ automated unit tests in GitHub Actions, zero manual deployment friction.
+                  SQL, MySQL, SQLite, MongoDB, SQLAlchemy, schema design & query optimization.
+                </div>
+              </div>
+
+              <div className="p-4 bg-slate-900/80 border border-slate-800 hover:border-slate-700 rounded-xl transition-colors space-y-1.5">
+                <div className="text-indigo-400 font-mono font-bold text-xs flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>Testing & CI/CD</span>
+                </div>
+                <div className="text-xs text-slate-300 leading-relaxed font-sans">
+                  Automated testing, data validation, PyTest, GitHub Actions CI & Docker.
                 </div>
               </div>
             </div>
