@@ -271,8 +271,7 @@ export const skillsData = {
   languages: [
     { name: "Python", level: "Expert", desc: "Core language, AsyncIO, OOP, Scripting, Automation" },
     { name: "Java", level: "Intermediate", desc: "Core OOP, Collections, Multi-threading basics" },
-    { name: "JavaScript", level: "Proficient", desc: "ES6+, Async/Await, Web integrations" },
-    { name: ".NET", level: "Working Knowledge", desc: "C# fundamentals, backend service basics" }
+    { name: "JavaScript", level: "Proficient", desc: "ES6+, Async/Await, Web integrations" }
   ],
   backend: [
     { name: "FastAPI & Flask", level: "Advanced", desc: "Async Endpoints, Pydantic, High Concurrency, OpenAPI" },

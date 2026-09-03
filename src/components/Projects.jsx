@@ -93,22 +93,32 @@ export default function Projects() {
               {/* Top Accent Gradient Bar */}
               <div className={`h-1.5 w-full bg-gradient-to-r ${project.color}`} />
 
+              {/* Project Image Preview */}
+              <div className="w-full h-40 bg-slate-800/50 border-b border-slate-700/50 overflow-hidden relative">
+                <img 
+                  src={`/projects/${project.id === "microservices-arch" ? "microservices" : project.id === "cache-system" ? "cache_db" : project.id === "devops-cloud" ? "devops" : project.id === "portfolio-app" ? "portfolio" : project.id === "content-desk" ? "content_desk" : "nlpcrm"}.jpg`}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
+              </div>
+
               <div className="p-6 space-y-4 flex-1">
                 
                 {/* Header: Logo Icon & Category */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-slate-950/90 border border-slate-700/80 flex items-center justify-center p-2.5 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-slate-950/90 border border-slate-700/80 flex items-center justify-center p-2.5 shadow-inner group-hover:scale-105 transition-transform duration-300 relative z-10 -mt-8 bg-slate-900">
                       {getProjectIcon(project.iconType)}
                     </div>
-                    <div>
-                      <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 border border-cyan-900/60 px-2 py-0.5 rounded">
+                    <div className="-mt-6">
+                      <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/80 border border-cyan-900/80 px-2 py-0.5 rounded shadow-sm backdrop-blur-sm">
                         {project.category}
                       </span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
+                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 -mt-6">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                     <span>Live</span>
                   </div>
