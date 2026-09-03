@@ -45,58 +45,60 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
 
   const codeSnippets = {
     fastapi: {
-      file: "fastapi_engine.py",
+      file: "fastapi_microservice.py",
       demoUrl: "https://npcrm-1.onrender.com",
-      demoLabel: "Live CRM API",
+      demoLabel: "Live REST & gRPC API",
       lines: [
         { num: "01", code: '<span class="text-indigo-400">from</span> fastapi <span class="text-indigo-400">import</span> FastAPI, Depends, status' },
         { num: "02", code: '<span class="text-indigo-400">from</span> sqlalchemy.orm <span class="text-indigo-400">import</span> Session' },
-        { num: "03", code: '<span class="text-indigo-400">from</span> app.auth <span class="text-indigo-400">import</span> oauth2_scheme, verify_jwt_token' },
-        { num: "04", code: '<span class="text-slate-500"># 25+ Production RESTful API Endpoints with OAuth 2.0</span>' },
-        { num: "05", code: '<span class="text-blue-400">@app.post</span>(<span class="text-emerald-400">"/api/v1/contacts"</span>, status_code=status.HTTP_201_CREATED)' },
-        { num: "06", code: '<span class="text-indigo-400">async def</span> <span class="text-sky-300">create_contact</span>(payload: ContactCreate, db: Session = <span class="text-sky-400">Depends</span>(get_db)):' },
-        { num: "07", code: '    validated = <span class="text-sky-300">validate_schema</span>(payload)' },
-        { num: "08", code: '    contact = <span class="text-indigo-400">await</span> <span class="text-slate-100">crud.contacts.create</span>(db, validated)' },
-        { num: "09", code: '    <span class="text-indigo-400">return</span> &#123;<span class="text-emerald-400">"status"</span>: <span class="text-emerald-400">"success"</span>, <span class="text-emerald-400">"data"</span>: contact&#125;' }
+        { num: "03", code: '<span class="text-indigo-400">from</span> app.cache <span class="text-indigo-400">import</span> RedisCacheManager' },
+        { num: "04", code: '<span class="text-slate-500"># 1. Microservices Architecture (gRPC / REST + Docker)</span>' },
+        { num: "05", code: '<span class="text-blue-400">@app.post</span>(<span class="text-emerald-400">"/api/v1/services"</span>, status_code=status.HTTP_201_CREATED)' },
+        { num: "06", code: '<span class="text-indigo-400">async def</span> <span class="text-sky-300">dispatch_service</span>(payload: Payload, db: Session = <span class="text-sky-400">Depends</span>(get_db)):' },
+        { num: "07", code: '    cached = <span class="text-sky-300">RedisCacheManager</span>.get(payload.id)' },
+        { num: "08", code: '    <span class="text-indigo-400">if</span> cached: <span class="text-indigo-400">return</span> cached' },
+        { num: "09", code: '    record = <span class="text-indigo-400">await</span> <span class="text-slate-100">crud.services.create</span>(db, payload)' },
+        { num: "10", code: '    <span class="text-indigo-400">return</span> &#123;<span class="text-emerald-400">"status"</span>: <span class="text-emerald-400">"success"</span>, <span class="text-emerald-400">"data"</span>: record&#125;' }
       ]
     },
-    mysql: {
-      file: "schema_validation.sql",
+    redis: {
+      file: "cache_system.py",
       demoUrl: "https://content-desk.onrender.com",
-      demoLabel: "Live Data Pipeline",
+      demoLabel: "Live Cache System",
       lines: [
-        { num: "01", code: '<span class="text-indigo-400">-- Automated ETL Data Integrity & Schema Validation</span>' },
-        { num: "02", code: '<span class="text-blue-400">CREATE TABLE IF NOT EXISTS</span> <span class="text-sky-300">contacts</span> (' },
-        { num: "03", code: '    <span class="text-sky-400">id</span> <span class="text-indigo-400">INT AUTO_INCREMENT PRIMARY KEY</span>,' },
-        { num: "04", code: '    <span class="text-sky-400">full_name</span> <span class="text-indigo-400">VARCHAR(255) NOT NULL</span>,' },
-        { num: "05", code: '    <span class="text-sky-400">email</span> <span class="text-indigo-400">VARCHAR(255) UNIQUE NOT NULL</span>,' },
+        { num: "01", code: '<span class="text-indigo-400">-- 2. High-Throughput Cache System (PostgreSQL + Redis + ORM)</span>' },
+        { num: "02", code: '<span class="text-blue-400">CREATE TABLE IF NOT EXISTS</span> <span class="text-sky-300">hot_query_cache</span> (' },
+        { num: "03", code: '    <span class="text-sky-400">cache_key</span> <span class="text-indigo-400">VARCHAR(255) PRIMARY KEY</span>,' },
+        { num: "04", code: '    <span class="text-sky-400">query_hash</span> <span class="text-indigo-400">VARCHAR(64) UNIQUE NOT NULL</span>,' },
+        { num: "05", code: '    <span class="text-sky-400">ttl_seconds</span> <span class="text-indigo-400">INT DEFAULT 3600</span>,' },
         { num: "06", code: '    <span class="text-sky-400">created_at</span> <span class="text-indigo-400">TIMESTAMP DEFAULT CURRENT_TIMESTAMP</span>' },
         { num: "07", code: ');' },
-        { num: "08", code: '<span class="text-blue-400">CREATE INDEX</span> idx_contact_email <span class="text-blue-400">ON</span> contacts(email);' },
-        { num: "09", code: '<span class="text-slate-500">-- Validated across MySQL & MongoDB stores with zero schema drift</span>' }
+        { num: "08", code: '<span class="text-blue-400">CREATE INDEX</span> idx_query_hash <span class="text-blue-400">ON</span> hot_query_cache(query_hash);' },
+        { num: "09", code: '<span class="text-slate-500">-- >94% Cache Hit Rate with Sub-10ms Redis Latency</span>' }
       ]
     },
-    vlm: {
-      file: "vlm_diagnostic.py",
-      demoUrl: "https://vlm-hallucination-studio.onrender.com",
-      demoLabel: "Live VLM Studio",
+    cicd: {
+      file: "devops_pipeline.yml",
+      demoUrl: "https://aman-portflio-chi.vercel.app",
+      demoLabel: "Live DevOps Pipeline",
       lines: [
-        { num: "01", code: '<span class="text-indigo-400">import</span> torch, torchvision' },
-        { num: "02", code: '<span class="text-slate-500"># Vision-Language Hallucination Diagnostics</span>' },
-        { num: "03", code: '<span class="text-indigo-400">class</span> <span class="text-sky-300">VLMHallucinationAuditor</span>:' },
-        { num: "04", code: '    <span class="text-indigo-400">def</span> <span class="text-sky-400">detect_token_drift</span>(self, image, prompt):' },
-        { num: "05", code: '        vision_feats = self.encoder(image)' },
-        { num: "06", code: '        attn_map = self.cross_attention(vision_feats, prompt)' },
-        { num: "07", code: '        drift = <span class="text-sky-400">calc_drift_metric</span>(attn_map)' },
-        { num: "08", code: '        <span class="text-indigo-400">return</span> &#123;<span class="text-emerald-400">"drift"</span>: drift, <span class="text-emerald-400">"status"</span>: <span class="text-emerald-400">"clean"</span>&#125;' },
-        { num: "09", code: 'auditor = <span class="text-sky-400">VLMHallucinationAuditor</span>()' }
+        { num: "01", code: '<span class="text-indigo-400">name:</span> DevOps & Cloud Pipeline CI/CD' },
+        { num: "02", code: '<span class="text-indigo-400">on:</span> [push, pull_request]' },
+        { num: "03", code: '<span class="text-slate-500"># 3. DevOps & Cloud Pipeline (CI/CD + AWS Infrastructure)</span>' },
+        { num: "04", code: '<span class="text-indigo-400">jobs:</span>' },
+        { num: "05", code: '  <span class="text-sky-300">test-and-deploy:</span>' },
+        { num: "06", code: '    <span class="text-indigo-400">runs-on:</span> ubuntu-latest' },
+        { num: "07", code: '    <span class="text-indigo-400">steps:</span>' },
+        { num: "08", code: '      - <span class="text-emerald-400">run:</span> pytest --cov=app tests/' },
+        { num: "09", code: '      - <span class="text-emerald-400">run:</span> docker build -t app:latest .' },
+        { num: "10", code: '      - <span class="text-emerald-400">run:</span> aws ecr push app:latest' }
       ]
     }
   };
 
   return (
     <section className="relative min-h-[94vh] flex items-center justify-center pt-28 pb-14 overflow-hidden bg-[#090d16]">
-      {/* Subtle, Clean Lighting */}
+      {/* Subtle Lighting */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(59,130,246,0.12),rgba(255,255,255,0))] pointer-events-none" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b10_1px,transparent_1px),linear-gradient(to_bottom,#1e293b10_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none" />
 
@@ -152,19 +154,18 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
 
             {/* Concise Bio */}
             <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
-              B.Tech Computer Science graduate developing scalable <span className="text-white font-medium">RESTful APIs</span>, 
-              <span className="text-blue-300 font-medium"> Python (FastAPI & Flask) backend services</span>, 
-              <span className="text-slate-200 font-medium"> database-driven applications (SQL/NoSQL)</span>, and automated 
-              <span className="text-blue-300 font-medium"> CI/CD testing workflows</span> in agile sprint environments.
+              B.Tech Computer Science graduate building scalable <span className="text-white font-medium">RESTful APIs & gRPC microservices</span>, 
+              <span className="text-blue-300 font-medium"> PostgreSQL + Redis high-throughput cache systems</span>, and automated 
+              <span className="text-emerald-300 font-medium"> CI/CD DevOps cloud pipelines (GitHub Actions + AWS + Docker)</span>.
             </p>
 
             {/* Core Tech Stack Badges */}
             <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-xs text-slate-300">
               <span className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-blue-400">Python 3.12</span>
-              <span className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-slate-200">FastAPI & Flask</span>
-              <span className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-sky-300">RESTful APIs & OpenAPI</span>
-              <span className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-slate-200">SQL, MySQL & MongoDB</span>
-              <span className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-emerald-400">26 CI/CD Tests</span>
+              <span className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-slate-200">FastAPI & gRPC</span>
+              <span className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-sky-300">PostgreSQL & Redis</span>
+              <span className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-slate-200">Docker & Jenkins</span>
+              <span className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-emerald-400">CI/CD & AWS</span>
             </div>
 
             {/* Action Buttons */}
@@ -279,27 +280,27 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
                           : "text-slate-500 hover:text-slate-300"
                       }`}
                     >
-                      FastAPI
+                      Microservices
                     </button>
                     <button
-                      onClick={() => setActiveCodeTab("mysql")}
+                      onClick={() => setActiveCodeTab("redis")}
                       className={`px-2 py-0.5 rounded text-[11px] font-mono transition-colors ${
-                        activeCodeTab === "mysql"
-                          ? "bg-slate-800 text-sky-400 font-semibold"
+                        activeCodeTab === "redis"
+                          ? "bg-slate-800 text-emerald-400 font-semibold"
                           : "text-slate-500 hover:text-slate-300"
                       }`}
                     >
-                      MySQL
+                      Redis Cache
                     </button>
                     <button
-                      onClick={() => setActiveCodeTab("vlm")}
+                      onClick={() => setActiveCodeTab("cicd")}
                       className={`px-2 py-0.5 rounded text-[11px] font-mono transition-colors ${
-                        activeCodeTab === "vlm"
+                        activeCodeTab === "cicd"
                           ? "bg-slate-800 text-indigo-400 font-semibold"
                           : "text-slate-500 hover:text-slate-300"
                       }`}
                     >
-                      VLM AI
+                      DevOps Pipeline
                     </button>
                   </div>
                 </div>
@@ -355,8 +356,8 @@ export default function Hero({ onOpenResume, onOpenTerminal }) {
                 <CheckCircle2 className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xs font-semibold text-white">Backend & API Specialist</div>
-                <div className="text-[11px] font-mono text-slate-400">25+ REST Endpoints Architected</div>
+                <div className="text-xs font-semibold text-white">Microservices & DevOps Specialist</div>
+                <div className="text-[11px] font-mono text-slate-400">25+ REST & gRPC APIs Architected</div>
               </div>
             </div>
 

@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "Aman Varma",
-  headline: "Python Developer & Software Engineer developing RESTful APIs, backend services, database-driven applications, and automated CI/CD pipelines.",
-  subheadline: "Experienced in Python, FastAPI, Flask, SQL/NoSQL databases, API testing, data validation, and building customer-facing systems in agile environments.",
+  headline: "Python Developer & Software Engineer developing RESTful APIs, microservices, database-driven applications, and CI/CD pipelines.",
+  subheadline: "Experienced in Python, FastAPI, Flask, SQL/NoSQL databases, Redis, gRPC, API testing, data validation, and AWS/Cloud deployments in agile environments.",
   location: "Ghaziabad, India",
   email: "amangurauli@gmail.com",
   phone: "+91-6306572504",
@@ -9,11 +9,11 @@ export const personalInfo = {
   githubUsername: "Amanvarma2231",
   linkedin: "https://www.linkedin.com/in/aman-v-697771345",
   status: "Open for Python Developer / Backend Engineer / Software Engineer roles",
-  bio: "B.Tech Computer Science & Engineering graduate with hands-on experience as a Python Developer at Druidot Consulting. Skilled in Python, FastAPI, Flask, SQL/NoSQL databases, RESTful API design, automated testing, and CI/CD pipelines in agile sprint environments.",
+  bio: "B.Tech Computer Science & Engineering graduate with hands-on experience as a Python Developer at Druidot Consulting. Skilled in Python, FastAPI, Flask, gRPC, SQL/NoSQL databases (MySQL, PostgreSQL, Redis, MongoDB), RESTful API design, automated testing, and CI/CD cloud pipelines in agile sprint environments.",
   stats: [
-    { label: "REST APIs Architected", value: "25+", desc: "CRUD, Auth & Validation" },
-    { label: "Automated CI/CD Tests", value: "26+", desc: "GitHub Actions Pipeline" },
-    { label: "Production Records", value: "1,000+", desc: "MySQL & MongoDB" },
+    { label: "REST APIs & gRPC Services", value: "25+", desc: "CRUD, Auth & Validation" },
+    { label: "Automated CI/CD Tests", value: "26+", desc: "GitHub Actions & Jenkins" },
+    { label: "Production Records", value: "1,000+", desc: "MySQL, PostgreSQL & Redis" },
     { label: "DSA Problems Solved", value: "100+", desc: "Algorithms & Structures" },
   ]
 };
@@ -76,6 +76,90 @@ export const projectsData = [
     accentColor: "slate"
   },
   {
+    id: "microservices-arch",
+    title: "1. Microservices Architecture",
+    tagline: "High-Performance gRPC / REST Services & Docker Containerization",
+    category: "Microservices",
+    featured: true,
+    badges: ["Python", "FastAPI", "gRPC", "REST APIs", "Docker", "Protobuf"],
+    iconType: "crm",
+    description: "Decoupled microservices architecture leveraging high-speed gRPC binary serialization and FastAPI REST gateways, packaged with Docker for containerized orchestration.",
+    highlights: [
+      "Architected gRPC and REST communication protocols between decoupled Python microservices.",
+      "Implemented Protocol Buffers (Protobuf) for strongly-typed, low-latency inter-service payload transport.",
+      "Containerized microservices using Docker and multi-stage builds for minimal image footprint.",
+      "Configured API Gateway routing with rate-limiting, JWT authentication, and health checks."
+    ],
+    metrics: [
+      { name: "Service Latency", value: "< 15ms (gRPC)" },
+      { name: "Protocols", value: "gRPC & REST" },
+      { name: "Containerization", value: "Docker Multi-stage" },
+      { name: "Isolation", value: "Independent Scale" }
+    ],
+    liveDemo: "https://npcrm-1.onrender.com",
+    github: "https://github.com/Amanvarma2231/NLPCRM",
+    architecture: "API Gateway -> gRPC Inter-Service Communication -> Dockerized Microservices -> Auth & Rate Limiting -> Response Aggregation",
+    color: "from-cyan-600/30 via-slate-800 to-slate-900",
+    borderGlow: "border-cyan-500/40",
+    accentColor: "cyan"
+  },
+  {
+    id: "cache-system",
+    title: "2. High-Throughput Cache & DB System",
+    tagline: "PostgreSQL + Redis Caching & SQLAlchemy ORM Persistence",
+    category: "Backend & Databases",
+    featured: true,
+    badges: ["PostgreSQL", "Redis", "SQLAlchemy ORM", "Python", "FastAPI", "Caching"],
+    iconType: "data",
+    description: "High-speed database and caching architecture combining PostgreSQL transactional storage with Redis in-memory key-value caching to optimize query throughput.",
+    highlights: [
+      "Integrated Redis in-memory cache layer to reduce PostgreSQL read pressure for hot database queries.",
+      "Utilized SQLAlchemy ORM with async connection pooling and session management.",
+      "Implemented Cache-Aside pattern with automated TTL invalidation on record mutation.",
+      "Achieved sub-10ms response times on frequently accessed customer data endpoints."
+    ],
+    metrics: [
+      { name: "Cache Hit Rate", value: "> 94%" },
+      { name: "Query Speed", value: "< 8ms (Redis)" },
+      { name: "Storage", value: "PostgreSQL + Redis" },
+      { name: "Concurrency", value: "Async Connection Pool" }
+    ],
+    liveDemo: "https://content-desk.onrender.com",
+    github: "https://github.com/Amanvarma2231/Content-Desk",
+    architecture: "Client Request -> Redis In-Memory Cache (Hit) OR PostgreSQL (Miss) -> SQLAlchemy Async ORM -> Response Cache Update",
+    color: "from-emerald-600/30 via-slate-800 to-slate-900",
+    borderGlow: "border-emerald-500/40",
+    accentColor: "emerald"
+  },
+  {
+    id: "devops-cloud",
+    title: "3. DevOps & Cloud Infrastructure Pipeline",
+    tagline: "CI/CD Automation (GitHub Actions + Jenkins) & AWS Cloud Deployment",
+    category: "DevOps & Cloud",
+    featured: true,
+    badges: ["CI/CD", "GitHub Actions", "Jenkins", "AWS Infrastructure", "Docker", "Git"],
+    iconType: "portfolio",
+    description: "Automated end-to-end DevOps pipeline featuring GitHub Actions and Jenkins for build-test-deploy cycles, container image registries, and cloud infrastructure deployment.",
+    highlights: [
+      "Configured multi-stage CI/CD pipelines executing automated unit testing, linting, and security audits.",
+      "Automated Docker container builds and image publishing on every pull request.",
+      "Managed deployment workflows targeting cloud infrastructure with zero-downtime rolling updates.",
+      "Integrated automated regression test suites enforcing 26+ passing unit tests prior to release."
+    ],
+    metrics: [
+      { name: "Pipeline Speed", value: "< 2.5 mins" },
+      { name: "CI Tools", value: "GitHub Actions + Jenkins" },
+      { name: "Test Coverage", value: "26+ Unit Tests" },
+      { name: "Cloud Target", value: "AWS / Cloud Edge" }
+    ],
+    liveDemo: "https://aman-portflio-chi.vercel.app",
+    github: "https://github.com/Amanvarma2231/Aman-Portflio",
+    architecture: "Git Commit -> GitHub Actions / Jenkins Pipeline -> Automated PyTest Suite -> Docker Registry Build -> AWS Cloud Deployment",
+    color: "from-blue-700/30 via-slate-800 to-slate-900",
+    borderGlow: "border-blue-500/40",
+    accentColor: "blue"
+  },
+  {
     id: "portfolio-app",
     title: "Aman Varma – Portfolio & Systems Platform",
     tagline: "High-Performance SPA with Developer CLI & Architecture Telemetry",
@@ -100,90 +184,6 @@ export const projectsData = [
     github: "https://github.com/Amanvarma2231/Aman-Portflio",
     architecture: "React Client -> Vite Bundler -> Tailwind Component System -> Modals & CLI -> Vercel Edge Global Network",
     color: "from-blue-700/30 via-slate-800 to-slate-900",
-    borderGlow: "border-blue-500/40",
-    accentColor: "blue"
-  },
-  {
-    id: "vlm-hallucination",
-    title: "VLM Hallucination Studio",
-    tagline: "Vision-Language Model Diagnostics & Evaluation Hub",
-    category: "AI & Vision",
-    featured: true,
-    badges: ["Python", "FastAPI", "PyTorch", "Transformers", "REST APIs", "Render"],
-    iconType: "vision",
-    description: "Diagnostic platform to detect, evaluate, and mitigate hallucinations in modern Vision-Language Models (VLMs) across multimodal visual reasoning tasks.",
-    highlights: [
-      "Built evaluation pipelines detecting object hallucination and semantic consistency in multimodal models.",
-      "Engineered backend inference endpoints with FastAPI, delivering low-latency visual reasoning diagnostics.",
-      "Created an intuitive visual inspector comparing ground-truth image tokens against model attention maps.",
-      "Deployed on Render Cloud with containerized dependencies and health monitoring."
-    ],
-    metrics: [
-      { name: "Model Support", value: "Multimodal VLMs" },
-      { name: "Diagnostic Latency", value: "< 350ms" },
-      { name: "Evaluation Metrics", value: "Precision / Recall" },
-      { name: "Live Uptime", value: "99.9%" }
-    ],
-    liveDemo: "https://vlm-hallucination-studio.onrender.com",
-    github: "https://github.com/Amanvarma2231/VLM-Hallucination-Studio",
-    architecture: "Image & Text Ingestion -> Vision Feature Extractor -> VLM Attention & Token Scorer -> Hallucination Detection Engine -> Render Cloud",
-    color: "from-indigo-700/30 via-slate-800 to-slate-900",
-    borderGlow: "border-indigo-500/40",
-    accentColor: "indigo"
-  },
-  {
-    id: "voice-sentiment",
-    title: "Voice Sentiment Analysis",
-    tagline: "Real-Time Acoustic & Speech Emotion Classification",
-    category: "AI & Audio",
-    featured: true,
-    badges: ["Python", "Signal Processing", "NLP", "REST APIs", "Vercel"],
-    iconType: "audio",
-    description: "Multi-modal emotion and sentiment extraction suite processing speech audio waveforms and transcribed text to classify speaker intent.",
-    highlights: [
-      "Engineered speech preprocessing pipelines for noise reduction, spectrogram extraction, and pitch analysis.",
-      "Integrated sentiment scoring combining acoustic tonal cues with NLP lexical classification.",
-      "Developed high-throughput API endpoints supporting audio uploads and live streaming.",
-      "Deployed on Vercel with serverless routing and optimized bundle loading."
-    ],
-    metrics: [
-      { name: "Emotion Classes", value: "Multi-Class" },
-      { name: "Audio Formats", value: "WAV, MP3, WebM" },
-      { name: "Processing Speed", value: "Real-time" },
-      { name: "Platform", value: "Vercel Cloud" }
-    ],
-    liveDemo: "https://voice-sentiment12.vercel.app",
-    github: "https://github.com/Amanvarma2231/Voice-Sentiment12",
-    architecture: "Microphone Audio Stream -> Fast Fourier Transform (FFT) -> Acoustic Feature Extraction + NLP Transcription -> Sentiment Classifier",
-    color: "from-slate-700/30 via-slate-800 to-slate-900",
-    borderGlow: "border-slate-600/40",
-    accentColor: "slate"
-  },
-  {
-    id: "skill-development",
-    title: "Skill Development Platform",
-    tagline: "Interactive Learning & Assessment Tracking Portal",
-    category: "Full Stack",
-    featured: true,
-    badges: ["JavaScript", "Node.js", "REST APIs", "Tailwind CSS", "Vercel"],
-    iconType: "education",
-    description: "Developer and student skill development tracking portal featuring modular course curricula, progress analytics, and responsive interactive exercises.",
-    highlights: [
-      "Engineered an interactive curriculum roadmap with real-time milestone tracking and progress visualization.",
-      "Developed modular REST APIs for user assessment scoring, module completion, and badges.",
-      "Optimized frontend performance with lazy-loading and responsive layouts for desktop and mobile.",
-      "Deployed on Vercel with high-speed global edge network distribution."
-    ],
-    metrics: [
-      { name: "Platform Speed", value: "< 1s First Load" },
-      { name: "Deployment", value: "Vercel Edge" },
-      { name: "Status", value: "Live" },
-      { name: "Architecture", value: "Modular SPA" }
-    ],
-    liveDemo: "https://skill-development-eosin.vercel.app",
-    github: "https://github.com/Amanvarma2231/skill-development",
-    architecture: "Client UI -> Vercel Serverless Edge -> Modular Curriculum Store -> Progress State -> Analytics Dashboard",
-    color: "from-blue-800/30 via-slate-800 to-slate-900",
     borderGlow: "border-blue-500/40",
     accentColor: "blue"
   }
@@ -275,20 +275,20 @@ export const skillsData = {
     { name: ".NET", level: "Working Knowledge", desc: "C# fundamentals, backend service basics" }
   ],
   backend: [
-    { name: "FastAPI", level: "Advanced", desc: "Async Endpoints, Pydantic, High Concurrency, OpenAPI" },
-    { name: "Flask", level: "Advanced", desc: "REST APIs, Blueprints, Auth, Session Management" },
+    { name: "FastAPI & Flask", level: "Advanced", desc: "Async Endpoints, Pydantic, High Concurrency, OpenAPI" },
     { name: "Node.js & Express.js", level: "Intermediate", desc: "Microservices, Routing, Middleware" },
-    { name: "RESTful APIs & Web Services", level: "Expert", desc: "API Design, Specifications, CRUD, OpenAPI" }
+    { name: "RESTful APIs & gRPC Services", level: "Expert", desc: "API Design, Specifications, CRUD, OpenAPI, Protobuf" },
+    { name: "Web Services", level: "Advanced", desc: "Decoupled backend integration, HTTP standards" }
   ],
   apiIntegration: [
-    { name: "REST API Design", level: "Expert", desc: "Standards-based URI structures, HTTP methods, Status codes" },
+    { name: "REST API Design & gRPC", level: "Expert", desc: "URI structures, HTTP methods, Status codes, Protobuf binary" },
     { name: "API Specifications & OpenAPI", level: "Advanced", desc: "Swagger documentation, Schema definitions" },
     { name: "API Testing", level: "Advanced", desc: "Postman, PyTest, Automated endpoint validation" },
     { name: "OAuth 2.0 & JWT", level: "Advanced", desc: "Secure token authentication, Bearer auth, Access control" }
   ],
   databases: [
-    { name: "SQL & Relational DBs", level: "Advanced", desc: "Database Schema Design, CRUD Operations, Queries" },
-    { name: "MySQL", level: "Advanced", desc: "Relational Schemas, Constraints, Foreign Keys, Indexing" },
+    { name: "SQL, MySQL & PostgreSQL", level: "Advanced", desc: "Relational Schemas, Constraints, Foreign Keys, Indexing" },
+    { name: "Redis Caching", level: "Advanced", desc: "In-memory caching, Query throughput acceleration, TTL" },
     { name: "SQLite", level: "Advanced", desc: "Embedded Storage, Fast In-Memory DB, Lightweight persistence" },
     { name: "MongoDB", level: "Intermediate", desc: "NoSQL document stores, JSON schemas, Collections" },
     { name: "SQLAlchemy", level: "Advanced", desc: "Python ORM, Model declarations, Sessions, Migrations" }
@@ -299,9 +299,10 @@ export const skillsData = {
     { name: "Debugging & Code Review", level: "Advanced", desc: "Error tracking, Root-cause analysis, Code quality" }
   ],
   devopsTools: [
-    { name: "Git & GitHub", level: "Advanced", desc: "Branching, Pull Requests, Code Reviews, Version control" },
+    { name: "Docker & Containerization", level: "Advanced", desc: "Dockerfile, Multi-stage builds, Container orchestration" },
+    { name: "Jenkins & OpenShift", level: "Proficient", desc: "Automated pipelines, Enterprise deployment jobs" },
     { name: "GitHub Actions & CI/CD", level: "Advanced", desc: "Automated Build, Test & Lint Pipelines (26 tests)" },
-    { name: "Docker", level: "Intermediate", desc: "Containerization, Dockerfile, Container deployment" },
-    { name: "Agile & Scrum", level: "Proficient", desc: "Sprint cycles, Iterative feature development, Daily standups" }
+    { name: "AWS & Cloud Deployments", level: "Proficient", desc: "Cloud infrastructure, Edge CDN, Automated deployments" },
+    { name: "Git, GitHub & Agile/Scrum", level: "Advanced", desc: "Branching, Pull Requests, Code Reviews, Sprint cycles" }
   ]
 };
